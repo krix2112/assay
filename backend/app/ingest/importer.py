@@ -48,14 +48,12 @@ def _archive_imported_file(
     raw_file = dest_dir / f"{base_stem}.json"
     sidecar_file = dest_dir / f"{base_stem}.meta.json"
 
-    if raw_file.exists():
-        raise FileExistsError(
-            f"Archive file already exists and overwrite is prohibited: {raw_file}"
-        )
-    if sidecar_file.exists():
-        raise FileExistsError(
-            f"Archive sidecar already exists and overwrite is prohibited: {sidecar_file}"
-        )
+    counter = 1
+    while raw_file.exists() or sidecar_file.exists():
+        stem_with_seq = f"{base_stem}_{counter}"
+        raw_file = dest_dir / f"{stem_with_seq}.json"
+        sidecar_file = dest_dir / f"{stem_with_seq}.meta.json"
+        counter += 1
 
     # Save raw bytes byte-for-byte
     with open(raw_file, "wb") as f:

@@ -78,6 +78,39 @@ class Settings(BaseSettings):
         default=0.1,
         description="Volume and OI ratio threshold for Low liquidity label",
     )
+    # Analytics / Spreads and Parity parameters (S7, S8)
+    PAIR_MAX_EXPIRY_GAP_DAYS: int = Field(
+        default=10,
+        description="Maximum allowed calendar days between contract expiries for pairing",
+    )
+    SPREAD_LOOKBACK_DAYS: int = Field(
+        default=20,
+        description="Lookback trading days window to compute rolling median and MAD of spread_bps",
+    )
+    SPREAD_MIN_HISTORY: int = Field(
+        default=10,
+        description="Minimum history trading days required to compute robust_z",
+    )
+    PARITY_Z_CAP: float = Field(
+        default=4.0,
+        description="Cap on absolute robust_z in penalty computation",
+    )
+    PARITY_WEIGHT_HIGH: float = Field(
+        default=1.0,
+        description="Parity score weight for High liquidity pairs",
+    )
+    PARITY_WEIGHT_MEDIUM: float = Field(
+        default=0.6,
+        description="Parity score weight for Medium liquidity pairs",
+    )
+    PARITY_WEIGHT_LOW: float = Field(
+        default=0.3,
+        description="Parity score weight for Low liquidity pairs",
+    )
+    ANALYTICS_METHOD_VERSION: str = Field(
+        default="v1",
+        description="Version string recorded with spreads and parity scores",
+    )
 
 
 settings = Settings()
