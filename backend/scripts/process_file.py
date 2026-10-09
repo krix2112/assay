@@ -35,6 +35,13 @@ def main() -> None:
         default=None,
         help="Optional calendar date requested (DD/MM/YYYY format)",
     )
+    parser.add_argument(
+        "--allow-synthetic",
+        dest="allow_synthetic",
+        action="store_true",
+        default=False,
+        help="Explicitly permit importing synthetic test fixtures (prohibited in production)",
+    )
 
     args = parser.parse_args()
     file_path = Path(args.path)
@@ -48,7 +55,11 @@ def main() -> None:
         print(f"Requested Date: {args.requested_date.strftime('%d/%m/%Y')}")
 
     try:
-        summary = process_file(file_path, requested_date=args.requested_date)
+        summary = process_file(
+            file_path,
+            requested_date=args.requested_date,
+            allow_synthetic=args.allow_synthetic,
+        )
     except Exception as exc:
         print(f"Pipeline processing failed: {exc}", file=sys.stderr)
         sys.exit(1)

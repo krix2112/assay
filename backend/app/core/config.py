@@ -57,6 +57,27 @@ class Settings(BaseSettings):
         default=date(2025, 1, 1),
         description="Approximate earliest valid trading date for GOLDTEN contracts (must verify)",
     )
+    # Liquidity parameters (S6)
+    LIQUIDITY_LOOKBACK_DAYS: int = Field(
+        default=20,
+        description="Lookback trading days window to calculate median volume and OI",
+    )
+    LIQUIDITY_MIN_HISTORY_DAYS: int = Field(
+        default=5,
+        description="Minimum prior trading days required before scoring liquidity confidence",
+    )
+    LIQUIDITY_HIGH_THRESHOLD: float = Field(
+        default=0.8,
+        description="Volume and OI ratio threshold for High liquidity label",
+    )
+    LIQUIDITY_MEDIUM_THRESHOLD: float = Field(
+        default=0.4,
+        description="Volume and OI ratio threshold for Medium liquidity label",
+    )
+    LIQUIDITY_LOW_THRESHOLD: float = Field(
+        default=0.1,
+        description="Volume and OI ratio threshold for Low liquidity label",
+    )
 
 
 settings = Settings()

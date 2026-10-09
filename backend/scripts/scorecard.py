@@ -34,6 +34,7 @@ def main() -> None:
 
     print("\n=======================================================")
     print("               ASSAY DATA TRUST SCORECARD              ")
+    print("  Notice: Public tables must hold only real imported data")
     print("=======================================================")
     if scorecard.date_from or scorecard.date_to:
         print(f"Date Range: {scorecard.date_from or 'Start'} to {scorecard.date_to or 'Latest'}\n")

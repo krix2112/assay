@@ -102,3 +102,4 @@ uv run alembic upgrade head
 - **Manual Import**: Market data is supplied via manual import of Bhavcopy files obtained directly through the official MCX website for personal, non-commercial research purposes.
 - **Data Protection**: Raw MCX data files and fixtures are never committed to version control or republished.
 - **Live Ingestion**: Automated live fetching is disabled by default (`MCX_LIVE_FETCH_ENABLED=False`) and strictly requires prior written consent from MCX or access via an authorized licensed data feed.
+- **Public Database Integrity**: The public database tables must strictly hold only real, manually imported data. Synthetic test fixtures are guarded and prohibited from public tables, executing exclusively in temporary schemas during tests.

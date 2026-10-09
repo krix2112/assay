@@ -101,19 +101,26 @@ def temp_db_session():
             conn.close()
 
 
+def test_synthetic_guard_refuses_without_flag(temp_db_session: Session) -> None:
+    """process_file must refuse synthetic fixtures unless allow_synthetic=True."""
+    normal_file = SYNTHETIC_DIR / "normal_day.json"
+    with pytest.raises(ValueError, match="REFUSED"):
+        process_file(normal_file, session=temp_db_session, allow_synthetic=False)
+
+
 def test_idempotent_import_and_normal_file(temp_db_session: Session) -> None:
     """Processing a file once stores rows; processing a second time is an idempotent skip."""
     normal_file = SYNTHETIC_DIR / "normal_day.json"
 
     # First run: processes file and stores accepted rows
-    summary1 = process_file(normal_file, session=temp_db_session)
+    summary1 = process_file(normal_file, session=temp_db_session, allow_synthetic=True)
     assert not summary1.is_idempotent_skip
     assert summary1.status == "success"
     assert summary1.rows_accepted == 10
     assert summary1.rows_quarantined == 0
 
     # Second run: identical file, must be an idempotent skip
-    summary2 = process_file(normal_file, session=temp_db_session)
+    summary2 = process_file(normal_file, session=temp_db_session, allow_synthetic=True)
     assert summary2.is_idempotent_skip
     assert summary2.rows_accepted == 0
 
@@ -127,7 +134,7 @@ def test_idempotent_import_and_normal_file(temp_db_session: Session) -> None:
 def test_conflicting_revision_keeps_old_row(temp_db_session: Session, tmp_path: Path) -> None:
     """When a file has different prices for existing key, keep existing and log conflict."""
     normal_file = SYNTHETIC_DIR / "normal_day.json"
-    process_file(normal_file, session=temp_db_session)
+    process_file(normal_file, session=temp_db_session, allow_synthetic=True)
 
     # Create a modified copy with a different price for the same contract key
     data = json.loads(normal_file.read_text(encoding="utf-8"))
@@ -137,7 +144,7 @@ def test_conflicting_revision_keeps_old_row(temp_db_session: Session, tmp_path: 
     revised_file = tmp_path / "revised_normal_day.json"
     revised_file.write_text(json.dumps(data), encoding="utf-8")
 
-    summary = process_file(revised_file, session=temp_db_session)
+    summary = process_file(revised_file, session=temp_db_session, allow_synthetic=True)
     assert summary.rows_quarantined >= 1
 
     # Verify existing row close price was NOT overwritten
@@ -169,7 +176,12 @@ def test_date_mismatch_handling(temp_db_session: Session) -> None:
     from datetime import date
 
     # Request Oct 7, but payload returns Oct 2
-    summary = process_file(diff_file, requested_date=date(2026, 10, 7), session=temp_db_session)
+    summary = process_file(
+        diff_file,
+        requested_date=date(2026, 10, 7),
+        session=temp_db_session,
+        allow_synthetic=True,
+    )
     assert summary.status == "date_mismatch"
     assert summary.rows_accepted == 2
     assert summary.rows_quarantined == 0
@@ -193,7 +205,7 @@ def test_date_mismatch_handling(temp_db_session: Session) -> None:
 def test_no_data_day_handling(temp_db_session: Session) -> None:
     """No data day stores raw_fetches with status 'no_data' and 0 rows without errors."""
     no_data_file = SYNTHETIC_DIR / "no_data_day.json"
-    summary = process_file(no_data_file, session=temp_db_session)
+    summary = process_file(no_data_file, session=temp_db_session, allow_synthetic=True)
 
     assert summary.status == "no_data"
     assert summary.rows_parsed == 0
@@ -212,7 +224,7 @@ def test_no_data_day_handling(temp_db_session: Session) -> None:
 def test_duplicate_rows_quarantined(temp_db_session: Session) -> None:
     """Duplicate contract rows in one file must all be quarantined."""
     dup_file = SYNTHETIC_DIR / "duplicate_rows_day.json"
-    summary = process_file(dup_file, session=temp_db_session)
+    summary = process_file(dup_file, session=temp_db_session, allow_synthetic=True)
 
     assert summary.rows_accepted == 1
     assert summary.rows_quarantined == 2
@@ -229,7 +241,7 @@ def test_duplicate_rows_quarantined(temp_db_session: Session) -> None:
 def test_malformed_rows_quarantined(temp_db_session: Session) -> None:
     """Malformed rows must be logged and quarantined while valid rows are stored."""
     malformed_file = SYNTHETIC_DIR / "malformed_rows_day.json"
-    summary = process_file(malformed_file, session=temp_db_session)
+    summary = process_file(malformed_file, session=temp_db_session, allow_synthetic=True)
 
     assert summary.rows_accepted == 1
     assert summary.rows_quarantined == 3
@@ -249,7 +261,7 @@ def test_warning_rows_still_stored(temp_db_session: Session, tmp_path: Path) -> 
     warn_file = tmp_path / "warning_zero_vol.json"
     warn_file.write_text(json.dumps(data), encoding="utf-8")
 
-    summary = process_file(warn_file, session=temp_db_session)
+    summary = process_file(warn_file, session=temp_db_session, allow_synthetic=True)
     assert summary.rows_accepted == 10
     assert summary.warnings_count >= 1
 
@@ -263,7 +275,7 @@ def test_warning_rows_still_stored(temp_db_session: Session, tmp_path: Path) -> 
 def test_scorecard_counts_match_database(temp_db_session: Session) -> None:
     """Data trust scorecard accurately aggregates stored and quarantined records."""
     normal_file = SYNTHETIC_DIR / "normal_day.json"
-    process_file(normal_file, session=temp_db_session)
+    process_file(normal_file, session=temp_db_session, allow_synthetic=True)
 
     scorecard = build_scorecard(temp_db_session)
     assert scorecard.rows_accepted == 10

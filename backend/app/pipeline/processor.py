@@ -44,6 +44,7 @@ def process_file(
     path: Path | str,
     requested_date: date | None = None,
     session: Session | None = None,
+    allow_synthetic: bool = False,
 ) -> PipelineSummary:
     """Process an MCX Bhavcopy JSON file from disk into the database.
 
@@ -54,11 +55,25 @@ def process_file(
     - DATE_MISMATCH: Stored under true returned trade date; status set to
       'date_mismatch'; rows are NOT quarantined.
     - "No data found": Stored as raw_fetches with status 'no_data', row_count=0, 0 errors.
+    - Synthetic Guard: Refuses synthetic fixtures unless allow_synthetic=True.
     - All storage executed inside a single transaction.
     """
     file_path = Path(path).resolve()
     if not file_path.is_file():
         raise FileNotFoundError(f"File not found: {file_path}")
+
+    # Synthetic data guard
+    is_synthetic = (
+        "data/fixtures/synthetic" in file_path.as_posix() or "synthetic" in file_path.parts
+    )
+    if is_synthetic and not allow_synthetic:
+        msg = (
+            f"REFUSED: File '{file_path.name}' is from synthetic fixtures. "
+            "Synthetic data must never be loaded into a real database without "
+            "explicit allow_synthetic=True."
+        )
+        logger.warning("Synthetic file rejected", path=str(file_path))
+        raise ValueError(msg)
 
     content_bytes = file_path.read_bytes()
     sha256_hash = hashlib.sha256(content_bytes).hexdigest()
