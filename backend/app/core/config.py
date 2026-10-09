@@ -164,6 +164,43 @@ class Settings(BaseSettings):
         default="v1",
         description="Code version recorded with backtest runs",
     )
+    # Publication & Notification (S10)
+    TELEGRAM_BOT_TOKEN: str = Field(
+        default="",
+        description="Telegram bot token for daily brief delivery",
+    )
+    TELEGRAM_CHAT_ID: str = Field(
+        default="",
+        description="Telegram chat ID for daily brief delivery",
+    )
+    SMTP_HOST: str = Field(
+        default="",
+        description="SMTP server hostname for email delivery fallback",
+    )
+    SMTP_PORT: int = Field(
+        default=587,
+        description="SMTP server port",
+    )
+    SMTP_USER: str = Field(
+        default="",
+        description="SMTP username",
+    )
+    SMTP_PASSWORD: str = Field(
+        default="",
+        description="SMTP password",
+    )
+    SMTP_FROM: str = Field(
+        default="",
+        description="Sender email address for briefs",
+    )
+    SMTP_TO: str = Field(
+        default="",
+        description="Recipient email address for briefs",
+    )
+    BRIEF_DRY_RUN: bool = Field(
+        default=True,
+        description="Dry run mode for daily brief delivery (never sends real messages)",
+    )
 
 
 settings = Settings()

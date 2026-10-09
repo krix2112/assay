@@ -11,6 +11,7 @@ from app.api.contracts import router as contracts_router
 from app.api.data_quality import router as data_quality_router
 from app.api.health import router as health_router
 from app.api.parity import router as parity_router
+from app.api.publish import router as publish_router
 from app.api.spreads import router as spreads_router
 from app.core.config import settings
 from app.core.logging import logger, setup_logging
@@ -47,3 +48,4 @@ app.include_router(contracts_router)
 app.include_router(spreads_router)
 app.include_router(parity_router)
 app.include_router(backtest_router)
+app.include_router(publish_router)

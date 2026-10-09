@@ -52,6 +52,7 @@ frontend/.env.local
 # Raw ingested data & real exchange fixtures
 data/raw/
 data/fixtures/bhavcopy_*
+data/track_record/*.json
 
 # OS & IDE
 .DS_Store

@@ -11,12 +11,14 @@ from app.models.normalized_price import NormalizedPriceRecord
 from app.models.parity import ParityScoreRecord
 from app.models.raw_fetch import RawFetchRecord
 from app.models.spread import SpreadRecord
+from app.models.track_record import BriefSentRecord, TrackRecordEntry
 
 __all__ = [
     "BacktestDailyRecord",
     "BacktestRunRecord",
     "BacktestTradeRecord",
     "BhavcopyRowRecord",
+    "BriefSentRecord",
     "ContractSpec",
     "DataQualityLogRecord",
     "LiquidityScoreRecord",
@@ -24,4 +26,5 @@ __all__ = [
     "ParityScoreRecord",
     "RawFetchRecord",
     "SpreadRecord",
+    "TrackRecordEntry",
 ]
