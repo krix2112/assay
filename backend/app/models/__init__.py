@@ -1,5 +1,8 @@
-"""SQLAlchemy models for Assay."""
-
+from app.models.backtest import (
+    BacktestDailyRecord,
+    BacktestRunRecord,
+    BacktestTradeRecord,
+)
 from app.models.bhavcopy import BhavcopyRowRecord
 from app.models.contract_spec import ContractSpec
 from app.models.data_quality import DataQualityLogRecord
@@ -10,6 +13,9 @@ from app.models.raw_fetch import RawFetchRecord
 from app.models.spread import SpreadRecord
 
 __all__ = [
+    "BacktestDailyRecord",
+    "BacktestRunRecord",
+    "BacktestTradeRecord",
     "BhavcopyRowRecord",
     "ContractSpec",
     "DataQualityLogRecord",

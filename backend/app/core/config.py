@@ -111,6 +111,59 @@ class Settings(BaseSettings):
         default="v1",
         description="Version string recorded with spreads and parity scores",
     )
+    # Walk-forward Backtest parameters (S9)
+    BACKTEST_ENTRY_Z: float = Field(
+        default=2.0,
+        description="Absolute robust_z threshold to generate an entry signal",
+    )
+    BACKTEST_EXIT_Z: float = Field(
+        default=0.5,
+        description="Absolute robust_z threshold to trigger an exit signal",
+    )
+    BACKTEST_MAX_HOLD_DAYS: int = Field(
+        default=10,
+        description="Maximum holding period in calendar/trading days before exit",
+    )
+    BACKTEST_TRAIN_FRACTION: float = Field(
+        default=0.6,
+        description="Fraction of trading days assigned to training window",
+    )
+    BACKTEST_ATTRIB_MIN_DAYS: int = Field(
+        default=20,
+        description="Minimum days required to compute regression attribution",
+    )
+    BACKTEST_MIN_TRADES: int = Field(
+        default=10,
+        description="Minimum held-out trades required for non-insufficient verdict",
+    )
+    BACKTEST_MIN_DAYS: int = Field(
+        default=60,
+        description="Minimum held-out days required for non-insufficient verdict",
+    )
+    BACKTEST_MAX_OPEN: int = Field(
+        default=4,
+        description="Maximum simultaneous open positions allowed across all pairs",
+    )
+    BACKTEST_COST_BPS_PER_SIDE: float = Field(
+        default=5.0,
+        description="Placeholder transaction cost in bps per side",
+    )
+    BACKTEST_SLIPPAGE_HIGH_BPS: float = Field(
+        default=2.0,
+        description="Placeholder slippage in bps for High liquidity pairs",
+    )
+    BACKTEST_SLIPPAGE_MEDIUM_BPS: float = Field(
+        default=6.0,
+        description="Placeholder slippage in bps for Medium liquidity pairs",
+    )
+    BACKTEST_SLIPPAGE_LOW_BPS: float = Field(
+        default=15.0,
+        description="Placeholder slippage in bps for Low liquidity pairs",
+    )
+    BACKTEST_CODE_VERSION: str = Field(
+        default="v1",
+        description="Code version recorded with backtest runs",
+    )
 
 
 settings = Settings()
