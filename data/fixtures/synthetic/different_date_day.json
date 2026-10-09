@@ -1,0 +1,35 @@
+{
+  "IsSuccess": true,
+  "Message": "Request was successful",
+  "Data": [
+    {
+      "Date": "10/02/2026",
+      "DateDisplay": "02 Oct 2026",
+      "Symbol": "GOLDM         ",
+      "ExpiryDate": "05DEC2026",
+      "Open": 148500.0,
+      "High": 149000.0,
+      "Low": 148200.0,
+      "Close": 148800.0,
+      "PreviousClose": 148400.0,
+      "Volume": 2100,
+      "OpenInterest": 4500,
+      "InstrumentName": "FUTCOM"
+    },
+    {
+      "Date": "10/02/2026",
+      "DateDisplay": "02 Oct 2026",
+      "Symbol": "GOLDTEN       ",
+      "ExpiryDate": "05NOV2026",
+      "Open": 148200.0,
+      "High": 148600.0,
+      "Low": 148000.0,
+      "Close": 148450.0,
+      "PreviousClose": 148100.0,
+      "Volume": 850,
+      "OpenInterest": 1200,
+      "InstrumentName": "FUTCOM"
+    }
+  ],
+  "Metadata": null
+}

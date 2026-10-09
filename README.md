@@ -93,3 +93,12 @@ docker compose up -d assay-db
 cd backend
 uv run alembic upgrade head
 ```
+
+---
+
+## Data Sources and Terms
+
+- **No Automated MCX Downloads**: Assay does not automate downloads or scraping from the Multi Commodity Exchange of India (MCX).
+- **Manual Import**: Market data is supplied via manual import of Bhavcopy files obtained directly through the official MCX website for personal, non-commercial research purposes.
+- **Data Protection**: Raw MCX data files and fixtures are never committed to version control or republished.
+- **Live Ingestion**: Automated live fetching is disabled by default (`MCX_LIVE_FETCH_ENABLED=False`) and strictly requires prior written consent from MCX or access via an authorized licensed data feed.

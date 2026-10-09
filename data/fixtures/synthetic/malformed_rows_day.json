@@ -1,0 +1,51 @@
+{
+  "IsSuccess": true,
+  "Message": "Request was successful",
+  "Data": [
+    {
+      "Date": "INVALID_DATE_FORMAT",
+      "Symbol": "GOLDM         ",
+      "ExpiryDate": "05DEC2026",
+      "Open": 149000.0,
+      "High": 149500.0,
+      "Low": 148800.0,
+      "Close": 149200.0,
+      "Volume": 100,
+      "OpenInterest": 200
+    },
+    {
+      "Date": "10/08/2026",
+      "Symbol": "GOLDTEN       ",
+      "ExpiryDate": "05NOV2026",
+      "Open": "NOT_A_PRICE",
+      "High": 149500.0,
+      "Low": 148800.0,
+      "Close": 149200.0,
+      "Volume": 100,
+      "OpenInterest": 200
+    },
+    {
+      "Date": "10/08/2026",
+      "Symbol": "",
+      "ExpiryDate": "05DEC2026",
+      "Open": 149000.0,
+      "High": 149500.0,
+      "Low": 148800.0,
+      "Close": 149200.0,
+      "Volume": 100,
+      "OpenInterest": 200
+    },
+    {
+      "Date": "10/08/2026",
+      "Symbol": "GOLDPETAL     ",
+      "ExpiryDate": "30OCT2026",
+      "Open": 14950.0,
+      "High": 15000.0,
+      "Low": 14920.0,
+      "Close": 14980.0,
+      "Volume": 500,
+      "OpenInterest": 1500
+    }
+  ],
+  "Metadata": null
+}

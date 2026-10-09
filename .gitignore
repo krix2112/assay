@@ -49,8 +49,9 @@ next-env.d.ts
 backend/.env
 frontend/.env.local
 
-# Raw ingested data
+# Raw ingested data & real exchange fixtures
 data/raw/
+data/fixtures/bhavcopy_*
 
 # OS & IDE
 .DS_Store
