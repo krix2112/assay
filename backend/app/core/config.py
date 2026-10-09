@@ -1,5 +1,7 @@
 """Application configuration settings."""
 
+from datetime import date
+
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -48,6 +50,12 @@ class Settings(BaseSettings):
     RAW_DATA_DIR: str = Field(
         default="data/raw",
         description="Directory to archive raw ingested fetches",
+    )
+    # GOLDTEN contracts launched recently; 2025-01-01 is an approximate threshold
+    # that must be verified against MCX specifications.
+    GOLDTEN_FIRST_DATE: date = Field(
+        default=date(2025, 1, 1),
+        description="Approximate earliest valid trading date for GOLDTEN contracts (must verify)",
     )
 
 
