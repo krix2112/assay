@@ -1,0 +1,722 @@
+[
+  {
+    "trade_date": "2026-08-10",
+    "score": 92,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-10T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-11",
+    "score": 87,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-11T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-12",
+    "score": 79,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-12T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-13",
+    "score": 87,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-13T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-14",
+    "score": 83,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-14T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-17",
+    "score": 79,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-17T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-18",
+    "score": 84,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-18T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-19",
+    "score": 86,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-19T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-20",
+    "score": 90,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-20T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-21",
+    "score": 81,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Baseline history building (lookback period establishing).",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-21T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-24",
+    "score": 86,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-24T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-25",
+    "score": 92,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-25T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-26",
+    "score": 78,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-26T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-27",
+    "score": 95,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-27T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-28",
+    "score": 91,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-28T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-08-31",
+    "score": 81,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Exchange timestamp disparity noted on file import.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-08-31T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-01",
+    "score": 91,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-01T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-02",
+    "score": 94,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-02T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-03",
+    "score": 88,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-03T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-04",
+    "score": 78,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-04T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-07",
+    "score": 90,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-07T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-08",
+    "score": 80,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-08T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-09",
+    "score": null,
+    "status": "Insufficient Pairs",
+    "pairs_used": 1,
+    "explanation": "Untradeable liquidity on petal contract prevented robust calculation.",
+    "details": {
+      "pairs_used": 1,
+      "pairs_excluded": 5
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-09T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-10",
+    "score": 85,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-10T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-11",
+    "score": 91,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-11T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-14",
+    "score": 82,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-14T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-15",
+    "score": 92,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-15T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-16",
+    "score": 84,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-16T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-17",
+    "score": 93,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-17T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-18",
+    "score": 87,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-18T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-21",
+    "score": 90,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-21T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-22",
+    "score": 87,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-22T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-23",
+    "score": 95,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-23T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-24",
+    "score": 79,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-24T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-25",
+    "score": 42,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Dislocation observed in GOLDTEN near-month contract.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-25T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-28",
+    "score": 42,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Dislocation observed in GOLDTEN near-month contract.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-28T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-29",
+    "score": 78,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-29T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-09-30",
+    "score": 81,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-09-30T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-01",
+    "score": 81,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-01T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-02",
+    "score": 94,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-02T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-05",
+    "score": 81,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-05T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-06",
+    "score": 83,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-06T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-07",
+    "score": 93,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-07T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-08",
+    "score": 87,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-08T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  },
+  {
+    "trade_date": "2026-10-09",
+    "score": 93,
+    "status": "Computed",
+    "pairs_used": 6,
+    "explanation": "Strong agreement across contracts with typical basis spreads.",
+    "details": {
+      "pairs_used": 6,
+      "pairs_excluded": 0
+    },
+    "method_version": "v1",
+    "computed_at": "2026-10-09T18:30:00Z",
+    "is_draft": true,
+    "unvalidated": true,
+    "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+  }
+]

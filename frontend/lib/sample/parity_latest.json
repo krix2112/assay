@@ -1,0 +1,16 @@
+{
+  "trade_date": "2026-10-09",
+  "score": 93,
+  "status": "Computed",
+  "pairs_used": 6,
+  "explanation": "Strong agreement across contracts with typical basis spreads.",
+  "details": {
+    "pairs_used": 6,
+    "pairs_excluded": 0
+  },
+  "method_version": "v1",
+  "computed_at": "2026-10-09T18:30:00Z",
+  "is_draft": true,
+  "unvalidated": true,
+  "draft_notice": "Parity Score v1 is a draft. It has NOT been validated against known dislocations."
+}

@@ -1,0 +1,56 @@
+{
+  "data_policy": "Public tables must strictly hold real, manually imported data only.",
+  "date_from": "2026-08-10",
+  "date_to": "2026-10-09",
+  "files_by_status": {
+    "success": 44,
+    "date_mismatch": 1
+  },
+  "rows_accepted": 540,
+  "rows_quarantined": 0,
+  "issues_by_check": [
+    {
+      "check_name": "DATE_MISMATCH",
+      "severity": "WARN",
+      "count": 1
+    },
+    {
+      "check_name": "MISSING_ROWS",
+      "severity": "INFO",
+      "count": 0
+    }
+  ],
+  "anomalous_dates": [
+    {
+      "date": "2026-08-31",
+      "status": "date_mismatch",
+      "reason": "Exchange file date differed by 1 day"
+    }
+  ],
+  "contract_coverage": [
+    {
+      "symbol": "GOLDM",
+      "first_date": "2026-08-10",
+      "last_date": "2026-10-09",
+      "trading_days_present": 45
+    },
+    {
+      "symbol": "GOLDTEN",
+      "first_date": "2026-08-10",
+      "last_date": "2026-10-09",
+      "trading_days_present": 45
+    },
+    {
+      "symbol": "GOLDGUINEA",
+      "first_date": "2026-08-10",
+      "last_date": "2026-10-09",
+      "trading_days_present": 45
+    },
+    {
+      "symbol": "GOLDPETAL",
+      "first_date": "2026-08-10",
+      "last_date": "2026-10-09",
+      "trading_days_present": 45
+    }
+  ]
+}

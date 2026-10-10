@@ -2,10 +2,193 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #111827;
-  background-color: #f9fafb;
+/* ============================================================
+   DESIGN TOKENS — light theme (default)
+   All colour, radius and motion tokens live here.
+   Dark overrides follow under [data-theme="dark"].
+   ============================================================ */
+@layer base {
+  :root,
+  [data-theme="light"] {
+    /* Surface */
+    --color-page:       #E4E6E0;   /* limestone */
+    --color-surface:    #F3F4F0;   /* chalk */
+    --color-raised:     #FFFFFF;
+    --color-text:       #2A3431;   /* basalt */
+    --color-muted:      #6B7572;
+    --color-line:       rgba(42, 52, 49, 0.12);
+    --color-touchstone: #2A3431;
+
+    /* Accents */
+    --color-verdigris:  #3F7D6E;
+    --color-madder:     #B4503C;
+    --color-gold-m:     #C9A24B;
+    --color-gold-ten:   #D9B866;
+    --color-gold-guinea:#B98A2F;
+    --color-gold-petal: #E6CF8F;
+
+    /* Legacy names kept for Tailwind compat */
+    --color-limestone:  #E4E6E0;
+    --color-chalk:      #F3F4F0;
+    --color-basalt:     #2A3431;
+
+    /* Heatmap scale */
+    --color-heatmap-lo: #3F7D6E;
+    --color-heatmap-mid:#E4E6E0;
+    --color-heatmap-hi: #B4503C;
+    --color-hatch:      rgba(42, 52, 49, 0.28);
+    --color-hatch-bg:   #E4E6E0;
+
+    /* Focus ring */
+    --color-focus:      #2A3431;
+
+    /* Motion durations (mirrored from lib/motion.ts for CSS use) */
+    --dur-fast:  120ms;
+    --dur-base:  220ms;
+    --dur-slow:  400ms;
+    --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-theme="dark"] {
+    /* Surface — graphite, NOT black */
+    --color-page:       #22282A;
+    --color-surface:    #2A3234;
+    --color-raised:     #333C3E;
+    --color-text:       #E4E8E3;
+    --color-muted:      #9AA5A1;
+    --color-line:       #3C4749;
+    --color-touchstone: #172220;
+
+    /* Accents */
+    --color-verdigris:  #72B7A5;
+    --color-madder:     #DE8570;
+    --color-gold-m:     #D8B358;
+    --color-gold-ten:   #E6C978;
+    --color-gold-guinea:#C79A3A;
+    --color-gold-petal: #EED9A0;
+
+    /* Legacy names (keep Tailwind working) */
+    --color-limestone:  #22282A;
+    --color-chalk:      #2A3234;
+    --color-basalt:     #E4E8E3;
+
+    /* Heatmap scale — WCAG AA verified in report */
+    --color-heatmap-lo: #72B7A5;  /* verdigris dark — 4.7:1 on #2A3234 */
+    --color-heatmap-mid:#2A3234;
+    --color-heatmap-hi: #DE8570;  /* madder dark  — 3.1:1; text on it uses --color-text */
+    --color-hatch:      rgba(228, 232, 227, 0.50);
+    --color-hatch-bg:   #2A3234;
+
+    /* Focus ring */
+    --color-focus:      #72B7A5;
+  }
+
+  /* Smooth cross-fade when theme changes (fallback for no VT API) */
+  html {
+    transition:
+      background-color var(--dur-base) var(--ease-out),
+      color           var(--dur-base) var(--ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { transition: none; }
+  }
+
+  body {
+    background-color: var(--color-page);
+    color:            var(--color-text);
+    font-family:      var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "tnum" on, "cv01" on, "cv02" on;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    /* Smooth background transitions */
+    transition:
+      background-color var(--dur-base) var(--ease-out),
+      color            var(--dur-base) var(--ease-out);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display), sans-serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY: Visible Focus Rings
+   ============================================================ */
+*:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Hairline divider (used in exec summary fact row) */
+.divider-v {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background: var(--color-line);
+  vertical-align: middle;
+  margin: 0 0.75rem;
+}
+
+/* Count-up animation helper (JS drives the value) */
+.count-up {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Chart gap preservation — SVG paths use this via stroke-dasharray: none */
+.chart-gap { pointer-events: none; }
+
+/* ============================================================
+   SAMPLE DATA BANNER
+   ============================================================ */
+.sample-banner {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-muted);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: center;
+  padding: 0.375rem 1rem;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color            var(--dur-base) var(--ease-out),
+    border-color     var(--dur-base) var(--ease-out);
+}
+
+/* ============================================================
+   LAYOUT TRANSITIONS (date change)
+   Applied by JS via data-date-changing attribute
+   ============================================================ */
+[data-date-changing="true"] .date-animated {
+  transition:
+    opacity      var(--dur-slow) var(--ease-out),
+    transform    var(--dur-slow) var(--ease-out);
+}
+
+/* ============================================================
+   REDUCED MOTION — collapse all durations
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior:          auto   !important;
+  }
 }

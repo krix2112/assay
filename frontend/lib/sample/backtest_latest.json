@@ -1,0 +1,199 @@
+{
+  "id": "sim-run-20261009-v1",
+  "created_at": "2026-10-09T18:30:00Z",
+  "code_version": "v1",
+  "params": {
+    "entry_z": 2,
+    "exit_z": 0.5,
+    "max_hold_days": 10,
+    "train_fraction": 0.6,
+    "max_open": 4
+  },
+  "data_from": "2026-08-10",
+  "data_to": "2026-10-09",
+  "train_to": "2026-09-15",
+  "status": "completed",
+  "summary": {
+    "verdict": "inconclusive",
+    "explanation": "Trade count (8) below minimum sample threshold (10) for conclusive verdict.",
+    "held_out": {
+      "trade_count": 8,
+      "win_rate": 0.625,
+      "net_pnl": 14200.5,
+      "sharpe": 1.15,
+      "max_drawdown_pct": 0.032
+    },
+    "train": {
+      "trade_count": 12,
+      "win_rate": 0.583,
+      "net_pnl": 18900
+    }
+  },
+  "equity_curve": [
+    {
+      "trade_date": "2026-09-16",
+      "strategy_pnl": "-15.22",
+      "gross_pnl": "227.69",
+      "costs": "0.00",
+      "gold_return": "0.000572",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-09-17",
+      "strategy_pnl": "933.76",
+      "gross_pnl": "1104.56",
+      "costs": "50.00",
+      "gold_return": "0.002588",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-09-18",
+      "strategy_pnl": "1688.07",
+      "gross_pnl": "1882.03",
+      "costs": "100.00",
+      "gold_return": "-0.002335",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-09-21",
+      "strategy_pnl": "2290.16",
+      "gross_pnl": "2450.33",
+      "costs": "150.00",
+      "gold_return": "-0.000030",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-09-22",
+      "strategy_pnl": "3150.74",
+      "gross_pnl": "3321.99",
+      "costs": "200.00",
+      "gold_return": "-0.004376",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-09-23",
+      "strategy_pnl": "4069.51",
+      "gross_pnl": "4365.96",
+      "costs": "250.00",
+      "gold_return": "-0.001407",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-09-24",
+      "strategy_pnl": "5026.67",
+      "gross_pnl": "5070.73",
+      "costs": "300.00",
+      "gold_return": "-0.002835",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-09-25",
+      "strategy_pnl": "5807.51",
+      "gross_pnl": "6201.78",
+      "costs": "350.00",
+      "gold_return": "-0.002318",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-09-28",
+      "strategy_pnl": "6661.12",
+      "gross_pnl": "6803.99",
+      "costs": "400.00",
+      "gold_return": "-0.003844",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-09-29",
+      "strategy_pnl": "7473.37",
+      "gross_pnl": "7914.53",
+      "costs": "450.00",
+      "gold_return": "0.004815",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-09-30",
+      "strategy_pnl": "8130.63",
+      "gross_pnl": "8394.05",
+      "costs": "500.00",
+      "gold_return": "0.002653",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-10-01",
+      "strategy_pnl": "8878.40",
+      "gross_pnl": "9263.10",
+      "costs": "550.00",
+      "gold_return": "-0.003411",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-10-02",
+      "strategy_pnl": "9853.32",
+      "gross_pnl": "10240.68",
+      "costs": "600.00",
+      "gold_return": "-0.000447",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-10-05",
+      "strategy_pnl": "10476.23",
+      "gross_pnl": "11003.31",
+      "costs": "650.00",
+      "gold_return": "-0.000486",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-10-06",
+      "strategy_pnl": "11399.77",
+      "gross_pnl": "12106.89",
+      "costs": "700.00",
+      "gold_return": "0.004833",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-10-07",
+      "strategy_pnl": "12232.95",
+      "gross_pnl": "13026.82",
+      "costs": "750.00",
+      "gold_return": "-0.001092",
+      "open_positions": 1
+    },
+    {
+      "trade_date": "2026-10-08",
+      "strategy_pnl": "13071.11",
+      "gross_pnl": "13849.84",
+      "costs": "800.00",
+      "gold_return": "0.004283",
+      "open_positions": 2
+    },
+    {
+      "trade_date": "2026-10-09",
+      "strategy_pnl": "13558.56",
+      "gross_pnl": "14656.66",
+      "costs": "850.00",
+      "gold_return": "-0.004485",
+      "open_positions": 1
+    }
+  ],
+  "trades": [
+    {
+      "id": 1,
+      "entry_date": "2026-09-17",
+      "exit_date": "2026-09-23",
+      "symbol_a": "GOLDM",
+      "expiry_a": "2026-11-05",
+      "symbol_b": "GOLDTEN",
+      "expiry_b": "2026-11-30",
+      "direction": "long_b_short_a",
+      "lots_a": 1,
+      "lots_b": 10,
+      "entry_spread_bps": "24.50",
+      "exit_spread_bps": "4.20",
+      "gross_pnl": "15200.00",
+      "costs": "750.00",
+      "net_pnl": "14450.00",
+      "exit_reason": "mean_reversion",
+      "residual_gram_mismatch": "0.00"
+    }
+  ]
+}

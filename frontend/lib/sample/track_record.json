@@ -1,0 +1,1667 @@
+[
+  {
+    "id": 1,
+    "trade_date": "2026-08-10",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-10",
+      "parity": {
+        "score": "92",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-10\",\"parity\":{\"score\":\"92\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": null,
+    "hash": "hash_0_20260810",
+    "created_at": "2026-08-10T18:30:05Z"
+  },
+  {
+    "id": 2,
+    "trade_date": "2026-08-11",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-11",
+      "parity": {
+        "score": "87",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-11\",\"parity\":{\"score\":\"87\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_0_20260810",
+    "hash": "hash_1_20260811",
+    "created_at": "2026-08-11T18:30:05Z"
+  },
+  {
+    "id": 3,
+    "trade_date": "2026-08-12",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-12",
+      "parity": {
+        "score": "79",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-12\",\"parity\":{\"score\":\"79\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_1_20260811",
+    "hash": "hash_2_20260812",
+    "created_at": "2026-08-12T18:30:05Z"
+  },
+  {
+    "id": 4,
+    "trade_date": "2026-08-13",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-13",
+      "parity": {
+        "score": "87",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-13\",\"parity\":{\"score\":\"87\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_2_20260812",
+    "hash": "hash_3_20260813",
+    "created_at": "2026-08-13T18:30:05Z"
+  },
+  {
+    "id": 5,
+    "trade_date": "2026-08-14",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-14",
+      "parity": {
+        "score": "83",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-14\",\"parity\":{\"score\":\"83\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_3_20260813",
+    "hash": "hash_4_20260814",
+    "created_at": "2026-08-14T18:30:05Z"
+  },
+  {
+    "id": 6,
+    "trade_date": "2026-08-17",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-17",
+      "parity": {
+        "score": "79",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-17\",\"parity\":{\"score\":\"79\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_4_20260814",
+    "hash": "hash_5_20260817",
+    "created_at": "2026-08-17T18:30:05Z"
+  },
+  {
+    "id": 7,
+    "trade_date": "2026-08-18",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-18",
+      "parity": {
+        "score": "84",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-18\",\"parity\":{\"score\":\"84\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_5_20260817",
+    "hash": "hash_6_20260818",
+    "created_at": "2026-08-18T18:30:05Z"
+  },
+  {
+    "id": 8,
+    "trade_date": "2026-08-19",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-19",
+      "parity": {
+        "score": "86",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-19\",\"parity\":{\"score\":\"86\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_6_20260818",
+    "hash": "hash_7_20260819",
+    "created_at": "2026-08-19T18:30:05Z"
+  },
+  {
+    "id": 9,
+    "trade_date": "2026-08-20",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-20",
+      "parity": {
+        "score": "90",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-20\",\"parity\":{\"score\":\"90\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_7_20260819",
+    "hash": "hash_8_20260820",
+    "created_at": "2026-08-20T18:30:05Z"
+  },
+  {
+    "id": 10,
+    "trade_date": "2026-08-21",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-21",
+      "parity": {
+        "score": "81",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-21\",\"parity\":{\"score\":\"81\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_8_20260820",
+    "hash": "hash_9_20260821",
+    "created_at": "2026-08-21T18:30:05Z"
+  },
+  {
+    "id": 11,
+    "trade_date": "2026-08-24",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-24",
+      "parity": {
+        "score": "86",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-24\",\"parity\":{\"score\":\"86\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_9_20260821",
+    "hash": "hash_10_20260824",
+    "created_at": "2026-08-24T18:30:05Z"
+  },
+  {
+    "id": 12,
+    "trade_date": "2026-08-25",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-25",
+      "parity": {
+        "score": "92",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-25\",\"parity\":{\"score\":\"92\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_10_20260824",
+    "hash": "hash_11_20260825",
+    "created_at": "2026-08-25T18:30:05Z"
+  },
+  {
+    "id": 13,
+    "trade_date": "2026-08-26",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-26",
+      "parity": {
+        "score": "78",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-26\",\"parity\":{\"score\":\"78\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_11_20260825",
+    "hash": "hash_12_20260826",
+    "created_at": "2026-08-26T18:30:05Z"
+  },
+  {
+    "id": 14,
+    "trade_date": "2026-08-27",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-27",
+      "parity": {
+        "score": "95",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-27\",\"parity\":{\"score\":\"95\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_12_20260826",
+    "hash": "hash_13_20260827",
+    "created_at": "2026-08-27T18:30:05Z"
+  },
+  {
+    "id": 15,
+    "trade_date": "2026-08-28",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-28",
+      "parity": {
+        "score": "91",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-28\",\"parity\":{\"score\":\"91\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_13_20260827",
+    "hash": "hash_14_20260828",
+    "created_at": "2026-08-28T18:30:05Z"
+  },
+  {
+    "id": 16,
+    "trade_date": "2026-08-31",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-08-31",
+      "parity": {
+        "score": "81",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "DATE_MISMATCH": 1
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-08-31\",\"parity\":{\"score\":\"81\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"DATE_MISMATCH\":1},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_14_20260828",
+    "hash": "hash_15_20260831",
+    "created_at": "2026-08-31T18:30:05Z"
+  },
+  {
+    "id": 17,
+    "trade_date": "2026-09-01",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-01",
+      "parity": {
+        "score": "91",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-01\",\"parity\":{\"score\":\"91\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_15_20260831",
+    "hash": "hash_16_20260901",
+    "created_at": "2026-09-01T18:30:05Z"
+  },
+  {
+    "id": 18,
+    "trade_date": "2026-09-02",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-02",
+      "parity": {
+        "score": "94",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-02\",\"parity\":{\"score\":\"94\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_16_20260901",
+    "hash": "hash_17_20260902",
+    "created_at": "2026-09-02T18:30:05Z"
+  },
+  {
+    "id": 19,
+    "trade_date": "2026-09-03",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-03",
+      "parity": {
+        "score": "88",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-03\",\"parity\":{\"score\":\"88\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_17_20260902",
+    "hash": "hash_18_20260903",
+    "created_at": "2026-09-03T18:30:05Z"
+  },
+  {
+    "id": 20,
+    "trade_date": "2026-09-04",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-04",
+      "parity": {
+        "score": "78",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-04\",\"parity\":{\"score\":\"78\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_18_20260903",
+    "hash": "hash_19_20260904",
+    "created_at": "2026-09-04T18:30:05Z"
+  },
+  {
+    "id": 21,
+    "trade_date": "2026-09-07",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-07",
+      "parity": {
+        "score": "90",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-07\",\"parity\":{\"score\":\"90\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_19_20260904",
+    "hash": "hash_20_20260907",
+    "created_at": "2026-09-07T18:30:05Z"
+  },
+  {
+    "id": 22,
+    "trade_date": "2026-09-08",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-08",
+      "parity": {
+        "score": "80",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-08\",\"parity\":{\"score\":\"80\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_20_20260907",
+    "hash": "hash_21_20260908",
+    "created_at": "2026-09-08T18:30:05Z"
+  },
+  {
+    "id": 23,
+    "trade_date": "2026-09-09",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-09",
+      "parity": {
+        "score": null,
+        "status": "Insufficient Pairs",
+        "pairs_used": 1,
+        "pairs_excluded": 5
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-09\",\"parity\":{\"score\":null,\"status\":\"Insufficient Pairs\",\"pairs_used\":1,\"pairs_excluded\":5},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_21_20260908",
+    "hash": "hash_22_20260909",
+    "created_at": "2026-09-09T18:30:05Z"
+  },
+  {
+    "id": 24,
+    "trade_date": "2026-09-10",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-10",
+      "parity": {
+        "score": "85",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-10\",\"parity\":{\"score\":\"85\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_22_20260909",
+    "hash": "hash_23_20260910",
+    "created_at": "2026-09-10T18:30:05Z"
+  },
+  {
+    "id": 25,
+    "trade_date": "2026-09-11",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-11",
+      "parity": {
+        "score": "91",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-11\",\"parity\":{\"score\":\"91\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_23_20260910",
+    "hash": "hash_24_20260911",
+    "created_at": "2026-09-11T18:30:05Z"
+  },
+  {
+    "id": 26,
+    "trade_date": "2026-09-14",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-14",
+      "parity": {
+        "score": "82",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-14\",\"parity\":{\"score\":\"82\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_24_20260911",
+    "hash": "hash_25_20260914",
+    "created_at": "2026-09-14T18:30:05Z"
+  },
+  {
+    "id": 27,
+    "trade_date": "2026-09-15",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-15",
+      "parity": {
+        "score": "92",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-15\",\"parity\":{\"score\":\"92\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_25_20260914",
+    "hash": "hash_26_20260915",
+    "created_at": "2026-09-15T18:30:05Z"
+  },
+  {
+    "id": 28,
+    "trade_date": "2026-09-16",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-16",
+      "parity": {
+        "score": "84",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-16\",\"parity\":{\"score\":\"84\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_26_20260915",
+    "hash": "hash_27_20260916",
+    "created_at": "2026-09-16T18:30:05Z"
+  },
+  {
+    "id": 29,
+    "trade_date": "2026-09-17",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-17",
+      "parity": {
+        "score": "93",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-17\",\"parity\":{\"score\":\"93\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_27_20260916",
+    "hash": "hash_28_20260917",
+    "created_at": "2026-09-17T18:30:05Z"
+  },
+  {
+    "id": 30,
+    "trade_date": "2026-09-18",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-18",
+      "parity": {
+        "score": "87",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-18\",\"parity\":{\"score\":\"87\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_28_20260917",
+    "hash": "hash_29_20260918",
+    "created_at": "2026-09-18T18:30:05Z"
+  },
+  {
+    "id": 31,
+    "trade_date": "2026-09-21",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-21",
+      "parity": {
+        "score": "90",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-21\",\"parity\":{\"score\":\"90\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_29_20260918",
+    "hash": "hash_30_20260921",
+    "created_at": "2026-09-21T18:30:05Z"
+  },
+  {
+    "id": 32,
+    "trade_date": "2026-09-22",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-22",
+      "parity": {
+        "score": "87",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-22\",\"parity\":{\"score\":\"87\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_30_20260921",
+    "hash": "hash_31_20260922",
+    "created_at": "2026-09-22T18:30:05Z"
+  },
+  {
+    "id": 33,
+    "trade_date": "2026-09-23",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-23",
+      "parity": {
+        "score": "95",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-23\",\"parity\":{\"score\":\"95\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_31_20260922",
+    "hash": "hash_32_20260923",
+    "created_at": "2026-09-23T18:30:05Z"
+  },
+  {
+    "id": 34,
+    "trade_date": "2026-09-24",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-24",
+      "parity": {
+        "score": "79",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-24\",\"parity\":{\"score\":\"79\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_32_20260923",
+    "hash": "hash_33_20260924",
+    "created_at": "2026-09-24T18:30:05Z"
+  },
+  {
+    "id": 35,
+    "trade_date": "2026-09-25",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-25",
+      "parity": {
+        "score": "42",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-25\",\"parity\":{\"score\":\"42\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_33_20260924",
+    "hash": "hash_34_20260925",
+    "created_at": "2026-09-25T18:30:05Z"
+  },
+  {
+    "id": 36,
+    "trade_date": "2026-09-28",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-28",
+      "parity": {
+        "score": "42",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-28\",\"parity\":{\"score\":\"42\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_34_20260925",
+    "hash": "hash_35_20260928",
+    "created_at": "2026-09-28T18:30:05Z"
+  },
+  {
+    "id": 37,
+    "trade_date": "2026-09-29",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-29",
+      "parity": {
+        "score": "78",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-29\",\"parity\":{\"score\":\"78\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_35_20260928",
+    "hash": "hash_36_20260929",
+    "created_at": "2026-09-29T18:30:05Z"
+  },
+  {
+    "id": 38,
+    "trade_date": "2026-09-30",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-09-30",
+      "parity": {
+        "score": "81",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-09-30\",\"parity\":{\"score\":\"81\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_36_20260929",
+    "hash": "hash_37_20260930",
+    "created_at": "2026-09-30T18:30:05Z"
+  },
+  {
+    "id": 39,
+    "trade_date": "2026-10-01",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-01",
+      "parity": {
+        "score": "81",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-01\",\"parity\":{\"score\":\"81\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_37_20260930",
+    "hash": "hash_38_20261001",
+    "created_at": "2026-10-01T18:30:05Z"
+  },
+  {
+    "id": 40,
+    "trade_date": "2026-10-02",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-02",
+      "parity": {
+        "score": "94",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-02\",\"parity\":{\"score\":\"94\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_38_20261001",
+    "hash": "hash_39_20261002",
+    "created_at": "2026-10-02T18:30:05Z"
+  },
+  {
+    "id": 41,
+    "trade_date": "2026-10-05",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-05",
+      "parity": {
+        "score": "81",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-05\",\"parity\":{\"score\":\"81\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_39_20261002",
+    "hash": "hash_40_20261005",
+    "created_at": "2026-10-05T18:30:05Z"
+  },
+  {
+    "id": 42,
+    "trade_date": "2026-10-06",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-06",
+      "parity": {
+        "score": "83",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-06\",\"parity\":{\"score\":\"83\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_40_20261005",
+    "hash": "hash_41_20261006",
+    "created_at": "2026-10-06T18:30:05Z"
+  },
+  {
+    "id": 43,
+    "trade_date": "2026-10-07",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-07",
+      "parity": {
+        "score": "93",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-07\",\"parity\":{\"score\":\"93\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_41_20261006",
+    "hash": "hash_42_20261007",
+    "created_at": "2026-10-07T18:30:05Z"
+  },
+  {
+    "id": 44,
+    "trade_date": "2026-10-08",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-08",
+      "parity": {
+        "score": "87",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-08\",\"parity\":{\"score\":\"87\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_42_20261007",
+    "hash": "hash_43_20261008",
+    "created_at": "2026-10-08T18:30:05Z"
+  },
+  {
+    "id": 45,
+    "trade_date": "2026-10-09",
+    "revision": 1,
+    "record": {
+      "trade_date": "2026-10-09",
+      "parity": {
+        "score": "93",
+        "status": "Computed",
+        "pairs_used": 6,
+        "pairs_excluded": 0
+      },
+      "liquidity_label_counts": {
+        "High": 4,
+        "Medium": 4,
+        "Low": 4
+      },
+      "data_quality_counts": {
+        "PASS": 12
+      },
+      "files_imported_by_status": {
+        "success": 1
+      },
+      "method_versions": {
+        "parity": "v1",
+        "liquidity": "v1",
+        "normalize": "v1",
+        "spreads": "v1"
+      },
+      "code_version": "95e1bc0",
+      "latest_backtest_verdict": "inconclusive"
+    },
+    "canonical_json": "{\"trade_date\":\"2026-10-09\",\"parity\":{\"score\":\"93\",\"status\":\"Computed\",\"pairs_used\":6,\"pairs_excluded\":0},\"liquidity_label_counts\":{\"High\":4,\"Medium\":4,\"Low\":4},\"data_quality_counts\":{\"PASS\":12},\"files_imported_by_status\":{\"success\":1},\"method_versions\":{\"parity\":\"v1\",\"liquidity\":\"v1\",\"normalize\":\"v1\",\"spreads\":\"v1\"},\"code_version\":\"95e1bc0\",\"latest_backtest_verdict\":\"inconclusive\"}",
+    "prev_hash": "hash_43_20261008",
+    "hash": "hash_44_20261009",
+    "created_at": "2026-10-09T18:30:05Z"
+  }
+]
