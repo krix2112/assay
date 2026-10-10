@@ -150,7 +150,10 @@ export type TrackRecordEntry = z.infer<typeof TrackRecordEntrySchema>;
 // --- API Client Configuration & Implementation ---
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-export const IS_DEMO_MODE = process.env.NEXT_PUBLIC_DEMO === "true";
+export const IS_DEMO_MODE =
+  process.env.NEXT_PUBLIC_DEMO === "true" ||
+  process.env.NEXT_PUBLIC_API_URL === "demo" ||
+  (!process.env.NEXT_PUBLIC_API_URL && process.env.NODE_ENV === "production");
 
 // Helper for HTTP requests
 async function fetchFromApi<T>(path: string, schema: z.ZodType<T>): Promise<T> {
