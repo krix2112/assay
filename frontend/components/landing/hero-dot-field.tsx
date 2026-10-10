@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { OreHeroCenterpiece } from "./ore-hero-centerpiece";
 
 interface Dot {
   x: number;
@@ -22,17 +23,33 @@ const CONTRACT_COLORS = [
   "#E6CF8F", // GOLDPETAL
 ];
 
-const CONTRACT_NAMES = ["GOLDM", "GOLDTEN", "GOLDGUINEA", "GOLDPETAL"];
-
 export function HeroDotField() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [stampVisible, setStampVisible] = useState(false);
+  const [splitProgress, setSplitProgress] = useState(0);
+
   const mouseRef = useRef<{ x: number; y: number; active: boolean }>({
     x: -9999,
     y: -9999,
     active: false,
   });
+
+  // Scroll tracking to drive the 4-piece ore split
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      // Step 1 begins around 80px down and concludes around 480px
+      const start = 60;
+      const end = 440;
+      const progress = Math.max(0, Math.min(1, (scrollY - start) / (end - start)));
+      setSplitProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -79,15 +96,15 @@ export function HeroDotField() {
       // 4 streaks representing the 4 contracts
       for (let c = 0; c < 4; c++) {
         const color = CONTRACT_COLORS[c];
-        // In full parity, all streaks cluster around centerY with tiny 10px spacing
+        // In full parity, all streaks cluster around centerY with tiny 14px spacing
         const targetBaseline = centerY + (c - 1.5) * 14;
-        // In dispersed starting state, they drift widely (+/- 60px)
-        const initialDrift = (c - 1.5) * 48 + (Math.sin(c * 2) * 20);
+        // In dispersed starting state, they drift widely
+        const initialDrift = (c - 1.5) * 44 + Math.sin(c * 2) * 16;
 
         for (let i = 0; i < numSteps; i++) {
           const x = (i / (numSteps - 1)) * (width - 40) + 20;
-          const curveNoise = Math.sin((i / numSteps) * Math.PI * 3 + c) * 12;
-          const targetY = targetBaseline + Math.sin((i / numSteps) * Math.PI * 2) * 4;
+          const curveNoise = Math.sin((i / numSteps) * Math.PI * 3 + c) * 10;
+          const targetY = targetBaseline + Math.sin((i / numSteps) * Math.PI * 2) * 3;
           const startY = centerY + initialDrift + curveNoise;
 
           dots.push({
@@ -135,9 +152,7 @@ export function HeroDotField() {
       }
 
       const elapsed = (now - startTime) / 1000;
-      // Progress over 1.6s
       const progress = Math.min(1, elapsed / 1.6);
-      // Ease out cubic
       const easedProgress = 1 - Math.pow(1 - progress, 3);
 
       if (progress >= 0.95 && !stampVisible) {
@@ -147,7 +162,7 @@ export function HeroDotField() {
       ctx.clearRect(0, 0, width, height);
 
       // Render touchstone dark texture backdrop
-      ctx.fillStyle = "rgba(23, 34, 32, 0.95)";
+      ctx.fillStyle = "rgba(23, 34, 32, 0.96)";
       ctx.fillRect(0, 0, width, height);
 
       // Faint alignment reference guidelines
@@ -168,10 +183,8 @@ export function HeroDotField() {
         const dot = dots[i];
 
         if (!prefersReducedMotion) {
-          // Base settlement transition
           const baseGoalY = dot.startY + (dot.targetY - dot.startY) * easedProgress;
 
-          // Mouse interaction (gentle repulsive force)
           let dx = dot.x - mouse.x;
           let dy = dot.y - mouse.y;
           let dist = Math.sqrt(dx * dx + dy * dy);
@@ -180,15 +193,14 @@ export function HeroDotField() {
           let pushY = 0;
 
           if (mouse.active && dist < repelRadius && dist > 0) {
-            const force = (1 - dist / repelRadius) * 18;
+            const force = (1 - dist / repelRadius) * 16;
             pushX = (dx / dist) * force;
             pushY = (dy / dist) * force;
           }
 
-          // Spring towards baseGoalY
           const targetY = baseGoalY + pushY;
           dot.vy += (targetY - dot.y) * 0.12;
-          dot.vy *= 0.72; // damping
+          dot.vy *= 0.72;
           dot.y += dot.vy;
 
           if (pushX !== 0) {
@@ -198,10 +210,9 @@ export function HeroDotField() {
           }
         }
 
-        // Render dot
         ctx.fillStyle = dot.color;
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, 2.5, 0, Math.PI * 2);
+        ctx.arc(dot.x, dot.y, 2.2, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -220,7 +231,7 @@ export function HeroDotField() {
   }, [stampVisible]);
 
   return (
-    <section className="w-full pt-12 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <section className="w-full pt-10 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
       {/* Sample data banner notice */}
       <div
         className="mb-6 inline-flex items-center gap-2 px-3 py-1 text-xs border rounded-xs"
@@ -305,7 +316,7 @@ export function HeroDotField() {
           </div>
         </div>
 
-        {/* Right Column: Touchstone Slab Canvas */}
+        {/* Right Column: Touchstone Slab Canvas with 3D Ore Centrepiece */}
         <div className="lg:col-span-7">
           <div
             ref={containerRef}
@@ -318,31 +329,37 @@ export function HeroDotField() {
           >
             {/* Top header on touchstone */}
             <div
-              className="flex items-center justify-between px-4 py-2.5 border-b text-xs"
+              className="flex items-center justify-between px-4 py-2.5 border-b text-xs relative z-20"
               style={{
                 borderColor: "rgba(255,255,255,0.08)",
                 color: "#9AA5A1",
+                background: "rgba(23, 34, 32, 0.8)",
               }}
             >
               <div className="flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase">
                 <span>Touchstone verification</span>
-                <span className="text-[10px] opacity-60">EOD settling</span>
+                <span className="text-[10px] opacity-60">Gold ore assay</span>
               </div>
               <div className="text-[11px] text-right font-mono">
                 Sample data. These are not real MCX prices.
               </div>
             </div>
 
-            {/* Canvas dot field */}
+            {/* Canvas dot field (layer 1) */}
             <canvas
               ref={canvasRef}
-              className="w-full h-[300px] sm:h-[340px] block cursor-crosshair"
+              className="absolute inset-0 w-full h-full block cursor-crosshair z-0"
               aria-label="Touchstone simulation showing four MCX gold contract streaks settling into alignment"
             />
 
-            {/* Score & Hallmark Stamp */}
+            {/* 3D Ore Centrepiece (layer 2) */}
+            <div className="relative z-10 w-full h-[320px] sm:h-[350px]">
+              <OreHeroCenterpiece splitProgress={splitProgress} />
+            </div>
+
+            {/* Score & Hallmark Stamp (layer 3) */}
             <div
-              className={`absolute bottom-4 right-4 p-3 rounded-xs border backdrop-blur-sm transition-all duration-500 ${
+              className={`absolute bottom-4 right-4 p-3 rounded-xs border backdrop-blur-sm z-20 transition-all duration-500 ${
                 stampVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
               }`}
               style={{
@@ -365,16 +382,17 @@ export function HeroDotField() {
               </div>
             </div>
 
-            {/* Touchstone caption */}
+            {/* Touchstone caption (layer 4) */}
             <div
-              className="px-4 py-2 border-t text-[11px] flex justify-between items-center"
+              className="relative z-20 px-4 py-2 border-t text-[11px] flex justify-between items-center"
               style={{
                 borderColor: "rgba(255,255,255,0.08)",
                 color: "#9AA5A1",
+                background: "rgba(23, 34, 32, 0.8)",
               }}
             >
-              <span>Streaks align when contracts agree in fine-gold terms.</span>
-              <span className="font-mono">Hover to inspect streak elasticity</span>
+              <span>Scroll down to assay the ore into four contract pieces.</span>
+              <span className="font-mono">Drag to rotate</span>
             </div>
           </div>
         </div>

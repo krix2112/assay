@@ -1,7 +1,8 @@
 import React from "react";
-import { LandingNav } from "@/components/landing/landing-nav";
-import { HeroDotField } from "@/components/landing/hero-dot-field";
-import { ScrollStory } from "@/components/landing/scroll-story";
+import { FloatingPillNav } from "@/components/nav/floating-pill-nav";
+import { OreProductHero } from "@/components/landing/ore-product-hero";
+import { ScrollTour } from "@/components/landing/scroll-tour";
+import { LiveDemo } from "@/components/landing/live-demo";
 import { DataTransparency } from "@/components/landing/data-transparency";
 import { QuietDayDemo } from "@/components/landing/quiet-day";
 import { ProofFacts } from "@/components/landing/proof-facts";
@@ -25,20 +26,20 @@ export default function LandingPage() {
         color: "var(--color-text)",
       }}
     >
-      {/* Sample data banner */}
-      <div
-        role="status"
-        aria-live="polite"
-        className="sample-banner"
-      >
-        Sample data. These are not real MCX prices.
-      </div>
-
-      <LandingNav />
+      {/* Floating pill navigation at the top */}
+      <FloatingPillNav />
 
       <main className="flex-1 w-full flex flex-col">
-        <HeroDotField />
-        <ScrollStory />
+        {/* Part A: Full-viewport dark product hero */}
+        <OreProductHero />
+
+        {/* Part B: Product tour sticky scroll story */}
+        <ScrollTour />
+
+        {/* Part C: Live interactive demo section */}
+        <LiveDemo />
+
+        {/* Supporting sections */}
         <DataTransparency />
         <QuietDayDemo />
         <ProofFacts />

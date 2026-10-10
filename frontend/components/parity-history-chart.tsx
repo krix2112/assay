@@ -67,6 +67,17 @@ export function ParityHistoryChart({
     .y1((d: ParityResponse) => yScale(d.score || 0))
     .curve(curveMonotoneX);
 
+  // Data-driven annotation: Lowest scored day
+  const lowestScoredItem = history.reduce<ParityResponse | null>((lowest, d) => {
+    if (d.score === null) return lowest;
+    if (!lowest || (lowest.score !== null && d.score < lowest.score)) return d;
+    return lowest;
+  }, null);
+
+  // Data-driven annotation: First gap with null score
+  const gapIndex = history.findIndex((d) => d.score === null);
+  const gapItem = gapIndex !== -1 ? history[gapIndex] : null;
+
   const handlePointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = ((e.clientX - rect.left) / rect.width) * width;
@@ -191,6 +202,97 @@ export function ParityHistoryChart({
               strokeDasharray="3 3"
               strokeOpacity="0.6"
             />
+          )}
+
+          {/* Data Annotation: Lowest Score Callout */}
+          {lowestScoredItem && lowestScoredItem.score !== null && (
+            <g className="pointer-events-none">
+              {(() => {
+                const idx = history.indexOf(lowestScoredItem);
+                const lx = xScale(idx);
+                const ly = yScale(lowestScoredItem.score);
+                const tagY = Math.min(ly + 28, height - margin.bottom - 4);
+                return (
+                  <>
+                    <circle cx={lx} cy={ly} r="3" fill="var(--color-madder)" />
+                    <line
+                      x1={lx}
+                      y1={ly + 4}
+                      x2={lx}
+                      y2={tagY - 10}
+                      stroke="var(--color-madder)"
+                      strokeWidth="1.2"
+                      strokeDasharray="2 2"
+                      strokeOpacity="0.8"
+                    />
+                    <rect
+                      x={Math.max(margin.left, lx - 45)}
+                      y={tagY - 10}
+                      width="90"
+                      height="16"
+                      rx="2"
+                      fill="var(--color-surface)"
+                      stroke="var(--color-line)"
+                    />
+                    <text
+                      x={Math.max(margin.left + 45, lx)}
+                      y={tagY + 2}
+                      textAnchor="middle"
+                      fill="var(--color-madder)"
+                      fontSize="9"
+                      fontFamily="monospace"
+                      fontWeight="600"
+                    >
+                      LOWEST: {lowestScoredItem.score}
+                    </text>
+                  </>
+                );
+              })()}
+            </g>
+          )}
+
+          {/* Data Annotation: Untracked Gap Callout (if gap exists) */}
+          {gapItem && (
+            <g className="pointer-events-none">
+              {(() => {
+                const gx = xScale(gapIndex);
+                const gy = height - margin.bottom - 20;
+                return (
+                  <>
+                    <line
+                      x1={gx}
+                      y1={margin.top + 10}
+                      x2={gx}
+                      y2={gy - 8}
+                      stroke="var(--color-gold-m)"
+                      strokeWidth="1.2"
+                      strokeDasharray="2 3"
+                      strokeOpacity="0.7"
+                    />
+                    <rect
+                      x={Math.max(margin.left, gx - 32)}
+                      y={gy - 8}
+                      width="64"
+                      height="16"
+                      rx="2"
+                      fill="var(--color-surface)"
+                      stroke="var(--color-line)"
+                    />
+                    <text
+                      x={gx}
+                      y={gy + 4}
+                      textAnchor="middle"
+                      fill="var(--color-gold-m)"
+                      fontSize="9"
+                      fontFamily="monospace"
+                      fontWeight="600"
+                    >
+                      DATA GAP
+                    </text>
+                  </>
+                );
+              })()}
+            </g>
           )}
 
           {/* Hover Pointer */}

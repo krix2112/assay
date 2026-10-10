@@ -63,17 +63,47 @@ export function SpreadHeatmap({
     return clamped <= 0 ? colorLo(clamped) : colorHi(clamped);
   };
 
-  const getSpread = (a: string, b: string, dateStr: string): SpreadItem | null => {
+  const getSpread = React.useCallback((a: string, b: string, dateStr: string): SpreadItem | null => {
     const list = spreadsByDate[dateStr] || [];
     return list.find((s) => s.symbol_a === a && s.symbol_b === b) || null;
-  };
+  }, [spreadsByDate]);
 
   // Hatch line colour — WCAG AA compliant (>= 3.0:1 in both modes)
   const hatchStroke = isDark ? "rgba(228,232,227,0.50)" : "rgba(42,52,49,0.35)";
   const dotColor = isDark ? "rgba(228,232,227,0.40)" : "rgba(42,52,49,0.35)";
 
   const totalWidth = LABEL_W + Math.max(1, activeDates.length) * 26;
-  const totalHeight = (PAIRS.length + 1) * (ROW_H + 2) + 4;
+  const totalHeight = (PAIRS.length + 1) * (ROW_H + 2) + 32;
+
+interface HeatmapAnnotationData {
+  maxZ: { z: number; pIdx: number; cIdx: number } | null;
+  firstScoredIdx: number;
+}
+
+  // Data-driven annotations: Strongest z-score and first scored date
+  const annotations = React.useMemo<HeatmapAnnotationData>(() => {
+    let maxZ: { z: number; pIdx: number; cIdx: number } | null = null;
+    let firstScoredIdx = -1;
+
+    activeDates.forEach((d, cIdx) => {
+      let dateHasScore = false;
+      PAIRS.forEach((p, pIdx) => {
+        const s = getSpread(p.a, p.b, d);
+        if (s && s.robust_z !== null) {
+          dateHasScore = true;
+          const zNum = Number(s.robust_z);
+          if (!maxZ || Math.abs(zNum) > Math.abs(maxZ.z)) {
+            maxZ = { z: zNum, pIdx, cIdx };
+          }
+        }
+      });
+      if (dateHasScore && firstScoredIdx === -1) {
+        firstScoredIdx = cIdx;
+      }
+    });
+
+    return { maxZ, firstScoredIdx };
+  }, [activeDates, getSpread]);
 
   return (
     <div
@@ -313,6 +343,98 @@ export function SpreadHeatmap({
                 </g>
               );
             })}
+
+            {/* Data Annotations: Strongest Z and First Scored Date Callouts */}
+            {!isLoading && (
+              <g className="pointer-events-none">
+                {/* Strongest Z Callout */}
+                {annotations.maxZ != null && (
+                  (() => {
+                    const target = annotations.maxZ!;
+                    const cx = LABEL_W + target.cIdx * 26 + 12;
+                    const cy = ROW_H + 2 + target.pIdx * (ROW_H + 2) + ROW_H / 2;
+                    const tagY = totalHeight - 12;
+                    return (
+                      <g>
+                        <circle cx={cx} cy={cy} r="3" fill="none" stroke="var(--color-madder)" strokeWidth="1.5" />
+                        <line
+                          x1={cx}
+                          y1={cy + 6}
+                          x2={cx}
+                          y2={tagY - 10}
+                          stroke="var(--color-madder)"
+                          strokeWidth="1.2"
+                          strokeDasharray="2 2"
+                          strokeOpacity="0.8"
+                        />
+                        <rect
+                          x={cx - 36}
+                          y={tagY - 10}
+                          width="72"
+                          height="16"
+                          rx="2"
+                          fill="var(--color-surface)"
+                          stroke="var(--color-line)"
+                        />
+                        <text
+                          x={cx}
+                          y={tagY + 2}
+                          textAnchor="middle"
+                          fill="var(--color-madder)"
+                          fontSize="8.5"
+                          fontFamily="monospace"
+                          fontWeight="600"
+                        >
+                          PEAK Z: {target.z > 0 ? "+" : ""}{target.z.toFixed(1)}
+                        </text>
+                      </g>
+                    );
+                  })()
+                )}
+
+                {/* First Scored Date Callout */}
+                {annotations.firstScoredIdx !== -1 && (
+                  (() => {
+                    const fx = LABEL_W + annotations.firstScoredIdx * 26 + 12;
+                    const tagY = totalHeight - 12;
+                    return (
+                      <g>
+                        <line
+                          x1={fx}
+                          y1={ROW_H + 4}
+                          x2={fx}
+                          y2={tagY - 10}
+                          stroke="var(--color-verdigris)"
+                          strokeWidth="1.2"
+                          strokeDasharray="2 2"
+                          strokeOpacity="0.8"
+                        />
+                        <rect
+                          x={fx - 36}
+                          y={tagY - 10}
+                          width="72"
+                          height="16"
+                          rx="2"
+                          fill="var(--color-surface)"
+                          stroke="var(--color-line)"
+                        />
+                        <text
+                          x={fx}
+                          y={tagY + 2}
+                          textAnchor="middle"
+                          fill="var(--color-verdigris)"
+                          fontSize="8.5"
+                          fontFamily="monospace"
+                          fontWeight="600"
+                        >
+                          FIRST SCORED
+                        </text>
+                      </g>
+                    );
+                  })()
+                )}
+              </g>
+            )}
           </svg>
         </div>
       </div>

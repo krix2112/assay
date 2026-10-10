@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "9.121.5",
+    "@react-three/fiber": "8.17.14",
     "@tanstack/react-query": "^5.104.1",
     "d3-array": "^3.2.4",
     "d3-interpolate": "^3.0.1",
@@ -18,6 +20,7 @@
     "next": "14.2.23",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "three": "0.169.0",
     "zod": "^4.6.5"
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "@types/node": "20.17.14",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
+    "@types/three": "0.169.0",
     "autoprefixer": "10.4.20",
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.23",

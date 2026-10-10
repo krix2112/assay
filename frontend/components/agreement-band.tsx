@@ -897,24 +897,40 @@ export function AgreementBand({
                 fillOpacity="0.14"
               />
 
-              {/* Widest day annotation */}
+              {/* Widest day annotation callout (hidden when zoomed very tight to avoid covering lines) */}
               {widestDay && (() => {
                 const wIdx = dates.indexOf(widestDay.date);
                 if (wIdx < startIdx || wIdx > endIdx) return null;
+                // Hide when zoomed in to fewer than 5 days
+                if (endIdx - startIdx < 5) return null;
                 const wx = xSc(wIdx);
                 const topY = M.top + PRICE_H + MID_GAP;
+                const devData = dailyData[wIdx];
+                const peakDev = devData?.maxDev ?? 0;
+                const peakY = yDevSc(peakDev);
                 return (
-                  <g>
+                  <g className="pointer-events-none">
+                    <circle cx={wx} cy={peakY} r="3" fill="var(--color-madder)" />
                     <line
-                      x1={wx} y1={topY} x2={wx} y2={topY + DEV_H}
-                      stroke="var(--color-madder)" strokeWidth="1" strokeDasharray="3 3"
+                      x1={wx} y1={peakY} x2={wx} y2={topY + 18}
+                      stroke="var(--color-madder)" strokeWidth="1.2" strokeDasharray="2 3"
+                    />
+                    <rect
+                      x={Math.max(M.left, wx - 48)}
+                      y={topY + 2}
+                      width="96"
+                      height="16"
+                      rx="2"
+                      fill="var(--color-surface)"
+                      stroke="var(--color-line)"
                     />
                     <text
-                      x={wx + 4} y={topY + 12}
-                      fontSize="8" fontFamily="var(--font-body)"
+                      x={Math.max(M.left + 48, wx)} y={topY + 13}
+                      fontSize="8" fontFamily="monospace"
+                      textAnchor="middle"
                       fill="var(--color-madder)" fontWeight="600"
                     >
-                      Widest ({widestDay.date.slice(5)})
+                      WIDEST: +{widestDay.spreadBps.toFixed(1)} BPS
                     </text>
                   </g>
                 );

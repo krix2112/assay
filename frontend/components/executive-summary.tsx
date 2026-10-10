@@ -134,8 +134,12 @@ export function ExecutiveSummary({
 
   return (
     <motion.div
-      className="rounded-xl p-5 sm:p-6 space-y-4"
-      style={{ background: "var(--color-surface)", border: "1px solid var(--color-line)" }}
+      className="rounded-xl p-6 sm:p-8 space-y-6 shadow-sm"
+      style={{
+        background: "#172220",
+        border: "1px solid rgba(255, 255, 255, 0.12)",
+        color: "#E4E8E3",
+      }}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={TRANSITION.base}
@@ -205,8 +209,7 @@ export function ExecutiveSummary({
 
         {/* Verdict */}
         <p
-          className="text-sm leading-relaxed flex-1"
-          style={{ color: "var(--color-text)" }}
+          className="text-sm sm:text-base leading-relaxed flex-1 text-[#F3F4F0]"
         >
           {verdict}
         </p>
@@ -215,7 +218,7 @@ export function ExecutiveSummary({
       {/* Fact row — 4 metrics with hairline dividers */}
       <div
         className="flex flex-wrap gap-y-2 text-sm py-3"
-        style={{ borderTop: "1px solid var(--color-line)", borderBottom: "1px solid var(--color-line)" }}
+        style={{ borderTop: "1px solid rgba(255,255,255,0.12)", borderBottom: "1px solid rgba(255,255,255,0.12)" }}
       >
         {[
           { label: "Pairs scored",     value: String(pairsUsed) },
@@ -231,23 +234,23 @@ export function ExecutiveSummary({
                   display: "inline-block",
                   width: "1px",
                   alignSelf: "stretch",
-                  background: "var(--color-line)",
+                  background: "rgba(255,255,255,0.12)",
                   margin: "0 1.25rem",
                 }}
               />
             )}
             <div className="flex flex-col">
               <span
-                className="tabular-nums font-semibold font-display text-xl leading-tight"
+                className="tabular-nums font-semibold font-display text-2xl leading-tight"
                 style={{
                   color: fact.label === "Chain integrity" && !checksOk
                     ? "var(--color-madder)"
-                    : "var(--color-text)",
+                    : "#F3F4F0",
                 }}
               >
                 {fact.value}
               </span>
-              <span className="text-[10px] mt-0.5" style={{ color: "var(--color-muted)" }}>
+              <span className="text-[10px] mt-0.5 text-[#9AA5A1]">
                 {fact.label}
               </span>
             </div>
@@ -258,15 +261,14 @@ export function ExecutiveSummary({
       {/* What changed */}
       {topChanges.length > 0 && (
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--color-muted)" }}>
+          <p className="text-[10px] font-semibold uppercase tracking-wider mb-1.5 text-[#D9B866]">
             What changed
           </p>
           <ul className="space-y-0.5">
             {topChanges.map((c) => (
               <li
                 key={c}
-                className="text-xs"
-                style={{ color: "var(--color-text)" }}
+                className="text-xs text-[#E4E8E3]"
               >
                 {c}
               </li>
