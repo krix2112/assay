@@ -1,0 +1,46 @@
+{
+  "facts": [
+    {
+      "id": "validation-checks",
+      "headline": "11 validation check codes in validator, plus 1 conflict check in pipeline",
+      "detail": "11 row-level checks in backend/app/validate/validator.py cover date mismatches, parse faults, symbol boundaries, contract expiry windows, negative or non-positive prices, OHLC consistency, negative volume/OI, zero volume, duplicate rows, and pre-listing GOLDTEN dates. A 12th check (CONFLICTING_REVISION) runs separately in the import pipeline.",
+      "lastVerified": "2026-10-10",
+      "source": "backend/app/validate/validator.py, backend/app/validate/models.py"
+    },
+    {
+      "id": "test-suite",
+      "headline": "74 passing tests",
+      "detail": "All 74 tests pass in the backend pytest suite across ingest, validation, normalization, liquidity, analytics, backtest, derived series, and pipeline stages.",
+      "lastVerified": "2026-10-10",
+      "source": "pytest test suite (74 passed)"
+    },
+    {
+      "id": "lookahead",
+      "headline": "Look-ahead tests pass",
+      "detail": "Look-ahead tests pass in backend/tests/test_analytics.py (test_lookahead_temporal_isolation) and backend/tests/test_backtest.py (test_lookahead_temporal_isolation). Rolling medians, MAD, robust z-scores, and trade execution dates are strictly backward-looking.",
+      "lastVerified": "2026-10-10",
+      "source": "backend/tests/test_analytics.py, backend/tests/test_backtest.py"
+    },
+    {
+      "id": "append-only",
+      "headline": "Append-only database ledger with audit triggers",
+      "detail": "Raw bhavcopy records and ingested trade rows cannot be overwritten or updated in place. Note on trigger limits: a database owner could remove the trigger; the hash chain plus an outside copy of the latest hash is the real evidence.",
+      "lastVerified": "2026-10-10",
+      "source": "backend/app/db/migrations/env.py & schema constraints"
+    },
+    {
+      "id": "hash-chain",
+      "headline": "Cryptographic SHA-256 hash chaining",
+      "detail": "Each import run hashes accepted rows and binds to the previous run's digest. Any retroactive row manipulation alters downstream hashes.",
+      "lastVerified": "2026-10-10",
+      "source": "backend/app/publish/service.py"
+    },
+    {
+      "id": "held-out-verdict",
+      "headline": "Held-out test window evaluation",
+      "detail": "Backtest strategy verdicts run strictly on chronological held-out segments. Look-ahead tests pass without cross-period parameter leakage.",
+      "lastVerified": "2026-10-10",
+      "source": "backend/app/backtest/engine.py"
+    }
+  ]
+}

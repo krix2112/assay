@@ -18,7 +18,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Data trust", href: "/data-trust" },
   { label: "Backtest",   href: "/backtest" },
   { label: "Track record", href: "/track-record" },
-  { label: "About the method", href: "/about" },
+  { label: "About the method", href: "/method" },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -32,13 +32,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     toggleTheme(toggleRef.current);
   };
 
+  const isStandalone = pathname === "/" || pathname === "/method";
+
+  if (isStandalone) {
+    return <>{children}</>;
+  }
+
   return (
     <div
       className="min-h-screen flex flex-col selection:bg-surface selection:text-text"
       style={{ background: "var(--color-page)", color: "var(--color-text)" }}
     >
       {/* Sample Data Banner — visible in both themes on /dashboard */}
-      {(IS_DEMO_MODE || pathname === "/dashboard" || pathname === "/") && (
+      {(IS_DEMO_MODE || pathname === "/dashboard") && (
         <div
           role="status"
           aria-live="polite"
