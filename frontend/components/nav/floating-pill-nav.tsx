@@ -5,6 +5,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/lib/theme";
 
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+const DASHBOARD_LINKS: NavLink[] = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Contracts", href: "/contracts" },
+  { label: "Spreads", href: "/spreads" },
+  { label: "Data trust", href: "/data-trust" },
+  { label: "Backtest", href: "/backtest" },
+  { label: "Track record", href: "/track-record" },
+  { label: "Method", href: "/method" },
+];
+
 export function FloatingPillNav() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
@@ -12,35 +27,35 @@ export function FloatingPillNav() {
   const isDark = theme === "dark";
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 flex justify-center px-2 sm:px-4 pointer-events-none">
       <nav
         aria-label="Main Navigation"
-        className="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border shadow-md transition-colors backdrop-blur-md"
+        className="pointer-events-auto flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border shadow-md transition-colors backdrop-blur-md max-w-full overflow-x-auto"
         style={{
           background: isDark
-            ? "rgba(23, 34, 32, 0.88)"
-            : "rgba(243, 244, 240, 0.90)",
+            ? "rgba(23, 34, 32, 0.92)"
+            : "rgba(243, 244, 240, 0.94)",
           borderColor: isDark
-            ? "rgba(255, 255, 255, 0.12)"
-            : "rgba(42, 52, 49, 0.14)",
+            ? "rgba(255, 255, 255, 0.14)"
+            : "rgba(42, 52, 49, 0.16)",
           color: "var(--color-text)",
         }}
       >
         {/* Wordmark */}
         <Link
           href="/"
-          className="flex items-center gap-1.5 px-2 py-1 rounded-full text-sm font-display font-bold tracking-tight hover:opacity-80 transition-opacity focus-visible:outline-2"
+          className="flex items-center gap-1.5 px-2 py-1 rounded-full text-xs sm:text-sm font-display font-bold tracking-tight hover:opacity-80 transition-opacity focus-visible:outline-2 shrink-0"
           style={{ color: "var(--color-text)" }}
         >
           <span
-            className="w-1.5 h-1.5 rounded-full"
+            className="w-1.5 h-1.5 rounded-full shrink-0"
             style={{ background: "var(--color-gold-m)" }}
           />
           <span>Assay</span>
         </Link>
 
         <span
-          className="h-3 w-px mx-0.5"
+          className="h-3 w-px mx-0.5 shrink-0"
           style={{
             background: isDark
               ? "rgba(255, 255, 255, 0.15)"
@@ -48,41 +63,39 @@ export function FloatingPillNav() {
           }}
         />
 
-        {/* Links */}
-        <Link
-          href="/#product-tour"
-          className="px-2.5 py-1 rounded-full text-xs transition-colors hover:text-text focus-visible:outline-2"
-          style={{
-            color: "var(--color-muted)",
-          }}
-        >
-          Product
-        </Link>
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-1">
+          {DASHBOARD_LINKS.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className="px-2.5 py-1 rounded-full text-xs transition-colors hover:text-text focus-visible:outline-2 shrink-0"
+                style={{
+                  color: isActive ? "var(--color-text)" : "var(--color-muted)",
+                  fontWeight: isActive ? 600 : 400,
+                  background: isActive
+                    ? isDark
+                      ? "rgba(255, 255, 255, 0.08)"
+                      : "rgba(42, 52, 49, 0.08)"
+                    : "transparent",
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
 
-        <Link
-          href="/method"
-          className="px-2.5 py-1 rounded-full text-xs transition-colors hover:text-text focus-visible:outline-2"
-          style={{
-            color: pathname === "/method" ? "var(--color-text)" : "var(--color-muted)",
-            fontWeight: pathname === "/method" ? 600 : 400,
-          }}
-        >
-          Method
-        </Link>
-
-        <Link
-          href="/dashboard"
-          className="px-2.5 py-1 rounded-full text-xs transition-colors hover:text-text focus-visible:outline-2"
-          style={{
-            color: pathname === "/dashboard" ? "var(--color-text)" : "var(--color-muted)",
-            fontWeight: pathname === "/dashboard" ? 600 : 400,
-          }}
-        >
-          Dashboard
-        </Link>
+        {/* Mobile current page label */}
+        <div className="md:hidden flex items-center px-1 text-xs font-semibold shrink-0" style={{ color: "var(--color-text)" }}>
+          {DASHBOARD_LINKS.find((l) => l.href === pathname)?.label || (pathname === "/" ? "Home" : "Dashboard")}
+        </div>
 
         <span
-          className="h-3 w-px mx-0.5"
+          className="h-3 w-px mx-0.5 shrink-0"
           style={{
             background: isDark
               ? "rgba(255, 255, 255, 0.15)"
@@ -90,15 +103,15 @@ export function FloatingPillNav() {
           }}
         />
 
-        {/* Theme Toggle */}
+        {/* Theme Toggle (no emoji) */}
         <button
           ref={toggleRef}
           type="button"
           onClick={() => toggleTheme(toggleRef.current)}
           aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
           aria-pressed={isDark}
-          className="p-1.5 rounded-full hover:opacity-80 transition-opacity focus-visible:outline-2 flex items-center justify-center"
-          style={{ color: "var(--color-muted)" }}
+          className="p-1.5 rounded-full hover:opacity-80 transition-opacity focus-visible:outline-2 flex items-center justify-center shrink-0"
+          style={{ color: "var(--color-text)" }}
         >
           <svg
             aria-hidden="true"

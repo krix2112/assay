@@ -32,7 +32,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     toggleTheme(toggleRef.current);
   };
 
-  const isStandalone = pathname === "/" || pathname === "/method";
+  const isStandalone = pathname === "/";
 
   if (isStandalone) {
     return <>{children}</>;
@@ -46,8 +46,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Top Floating Pill Navigation */}
       <FloatingPillNav />
 
-      {/* Sample Data Banner — visible in both themes on /dashboard */}
-      {(IS_DEMO_MODE || pathname === "/dashboard") && (
+      {/* Sample Data Banner — visible in both themes across all pages when in Demo Mode */}
+      {IS_DEMO_MODE && (
         <div
           role="status"
           aria-live="polite"
@@ -67,13 +67,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Mobile Bottom Navigation Bar */}
       <nav
         aria-label="Mobile Navigation"
-        className="md:hidden fixed bottom-0 left-0 right-0 backdrop-blur-sm border-t z-40 px-2 py-1.5 flex justify-around items-center"
+        className="md:hidden fixed bottom-0 left-0 right-0 backdrop-blur-sm border-t z-40 px-2 py-1.5 flex items-center overflow-x-auto no-scrollbar gap-1"
         style={{
           background: "color-mix(in srgb, var(--color-surface) 95%, transparent)",
           borderColor: "var(--color-line)",
         }}
       >
-        {NAV_ITEMS.slice(0, 5).map((item) => {
+        {NAV_ITEMS.map((item) => {
           const isActive = pathname === item.href;
           return (
             <Link
@@ -82,9 +82,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               style={{
                 color: isActive ? "var(--color-text)" : "var(--color-muted)",
                 fontWeight: isActive ? 700 : 400,
+                background: isActive ? "color-mix(in srgb, var(--color-text) 8%, transparent)" : "transparent",
                 transition: "color var(--dur-fast) var(--ease-out)",
               }}
-              className="px-2 py-1.5 rounded-xs text-xs text-center"
+              className="px-2.5 py-1.5 rounded-xs text-xs text-center shrink-0"
             >
               {item.label}
             </Link>
