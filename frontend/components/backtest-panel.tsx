@@ -13,13 +13,13 @@ const W = 640, H = 140;
 const M = { top: 16, right: 16, bottom: 28, left: 56 };
 
 const VERDICT_COLOUR: Record<string, string> = {
-  positive:    "var(--color-verdigris)",
-  negative:    "var(--color-madder)",
-  inconclusive:"var(--color-gold-m)",
+  positive_after_costs_unvalidated: "var(--color-verdigris)",
+  no_persistent_edge_after_costs:    "var(--color-madder)",
+  insufficient_data:                 "var(--color-gold-m)",
 };
 
 export function BacktestPanel() {
-  const { data: bt, isLoading } = useQuery<BacktestLatest>({
+  const { data: bt, isLoading } = useQuery<BacktestLatest | null>({
     queryKey: ["backtest-latest"],
     queryFn: getLatestBacktest,
   });
@@ -106,10 +106,11 @@ export function BacktestPanel() {
           </p>
         </div>
         <span
-          className="text-sm font-semibold capitalize rounded-xs px-2 py-0.5"
+          className="text-xs font-mono font-semibold rounded-xs px-2 py-0.5 border uppercase tracking-wider"
           style={{
             color: verdictColor,
             background: `color-mix(in srgb, ${verdictColor} 12%, transparent)`,
+            borderColor: verdictColor,
           }}
         >
           {verdict}

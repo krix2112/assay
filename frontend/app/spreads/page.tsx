@@ -13,6 +13,7 @@ import {
   IS_DEMO_MODE,
 } from "@/lib/api";
 import { ApiErrorState } from "@/components/api-error-state";
+import { EmptyDataState } from "@/components/empty-data-state";
 
 const PAIR_OPTIONS = [
   { a: "GOLDM", b: "GOLDTEN", label: "GOLDM — GOLDTEN (100g vs 10g)" },
@@ -133,6 +134,11 @@ export default function SpreadsPage() {
     );
   }
 
+  // Handle empty database
+  if (!isHistoryLoading && (!history || history.length === 0)) {
+    return <EmptyDataState />;
+  }
+
   // Chart Dimensions
   const W = 1000;
   const H = 340;
@@ -191,9 +197,9 @@ export default function SpreadsPage() {
             <span
               className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-xs"
               style={{
-                background: "color-mix(in srgb, var(--color-gold-m) 15%, transparent)",
-                color: "var(--color-gold-m)",
-                border: "1px solid var(--color-gold-m)",
+                background: "color-mix(in srgb, var(--color-tag-gold) 12%, transparent)",
+                color: "var(--color-tag-gold)",
+                border: "1px solid var(--color-tag-gold)",
               }}
             >
               PAIR BASKET EXPLORER

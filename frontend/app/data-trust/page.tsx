@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getDataQualitySummary, DataQualitySummary, IS_DEMO_MODE } from "@/lib/api";
 import { VALIDATION_RULES, ValidationRuleDefinition } from "@/lib/validation-rules";
 import { ApiErrorState } from "@/components/api-error-state";
+import { EmptyDataState } from "@/components/empty-data-state";
 
 export default function DataTrustPage() {
   const {
@@ -41,16 +42,29 @@ export default function DataTrustPage() {
     );
   }
 
-  // Pre-calculate totals for first-paint rendering
-  const rowsAccepted = summary?.rows_accepted ?? 540;
+  // Pre-calculate totals for first-paint rendering (no mock numbers outside demo mode)
+  const rowsAccepted = summary?.rows_accepted ?? 0;
   const rowsQuarantined = summary?.rows_quarantined ?? 0;
   const totalRows = rowsAccepted + rowsQuarantined;
-  const acceptedPct = totalRows > 0 ? (rowsAccepted / totalRows) * 100 : 100;
+  const acceptedPct = totalRows > 0 ? (rowsAccepted / totalRows) * 100 : 0;
 
-  const filesByStatus = summary?.files_by_status ?? { success: 44, date_mismatch: 1 };
+  const filesByStatus = summary?.files_by_status ?? {};
   const issuesByCheck = summary?.issues_by_check ?? [];
   const anomalousDates = summary?.anomalous_dates ?? [];
   const contractCoverage = summary?.contract_coverage ?? [];
+
+  // Handle empty database
+  const isEmpty =
+    !isLoading &&
+    (!summary ||
+      (rowsAccepted === 0 &&
+        rowsQuarantined === 0 &&
+        Object.keys(filesByStatus).length === 0 &&
+        contractCoverage.length === 0));
+
+  if (isEmpty) {
+    return <EmptyDataState />;
+  }
 
   return (
     <div className="space-y-8 py-4 sm:py-6">
@@ -61,9 +75,9 @@ export default function DataTrustPage() {
             <span
               className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-xs"
               style={{
-                background: "color-mix(in srgb, var(--color-verdigris) 15%, transparent)",
-                color: "var(--color-verdigris)",
-                border: "1px solid var(--color-verdigris)",
+                background: "color-mix(in srgb, var(--color-tag-verdigris) 12%, transparent)",
+                color: "var(--color-tag-verdigris)",
+                border: "1px solid var(--color-tag-verdigris)",
               }}
             >
               STAGE S3 & S4 AUDIT SCORECARD
@@ -88,8 +102,8 @@ export default function DataTrustPage() {
         </div>
 
         <div className="text-xs shrink-0" style={{ color: "var(--color-muted)" }}>
-          Window: <strong className="font-mono" style={{ color: "var(--color-text)" }}>{summary?.date_from || "2026-08-10"}</strong> to{" "}
-          <strong className="font-mono" style={{ color: "var(--color-text)" }}>{summary?.date_to || "2026-10-09"}</strong>
+          Window: <strong className="font-mono" style={{ color: "var(--color-text)" }}>{summary?.date_from || "—"}</strong> to{" "}
+          <strong className="font-mono" style={{ color: "var(--color-text)" }}>{summary?.date_to || "—"}</strong>
         </div>
       </div>
 

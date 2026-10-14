@@ -28,6 +28,8 @@ import { AgreementBand }      from "@/components/agreement-band";
 import { PairStrips }         from "@/components/pair-strips";
 import { LiquidityRibbon }    from "@/components/liquidity-ribbon";
 import { BacktestPanel }      from "@/components/backtest-panel";
+import { ApiErrorState }       from "@/components/api-error-state";
+import { EmptyDataState }      from "@/components/empty-data-state";
 
 /** Wraps sections that animate their content when the date changes */
 function DateAnimated({
@@ -60,6 +62,7 @@ export default function DashboardPage() {
     data: history,
     isLoading: isHistoryLoading,
     error: historyError,
+    refetch: refetchHistory,
   } = useQuery({
     queryKey: ["parity-history"],
     queryFn: () => getParityHistory(),
@@ -127,31 +130,23 @@ export default function DashboardPage() {
     queryFn: () => getTrackRecordVerify(),
   });
 
-  // Error state
+  // Handle explicit API error
   if (historyError) {
     return (
-      <div className="max-w-2xl py-12 space-y-4">
-        <h1 className="font-display text-2xl font-bold" style={{ color: "var(--color-madder)" }}>
-          Unable to load Assay data
-        </h1>
-        <div
-          className="p-5 rounded-xl space-y-2"
-          style={{ background: "var(--color-surface)", border: "1px solid var(--color-madder)" }}
-        >
-          <p className="text-sm" style={{ color: "var(--color-text)" }}>
-            Failed to connect to the Assay backend API at{" "}
-            <code className="px-1.5 py-0.5 rounded-xs text-xs" style={{ background: "var(--color-page)" }}>
-              {process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
-            </code>
-            .
-          </p>
-          <p className="text-xs" style={{ color: "var(--color-muted)" }}>
-            Ensure the FastAPI server is running, or set{" "}
-            <code>NEXT_PUBLIC_DEMO=true</code> to use sample data.
-          </p>
-        </div>
-      </div>
+      <ApiErrorState
+        title="Cannot reach the Assay API. Is it running?"
+        onRetry={() => {
+          refetchHistory();
+          refetchSpreads();
+          refetchContracts();
+        }}
+      />
     );
+  }
+
+  // Handle empty database
+  if (!isHistoryLoading && (!history || history.length === 0)) {
+    return <EmptyDataState />;
   }
 
   // Loading skeleton

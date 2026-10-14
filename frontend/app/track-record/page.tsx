@@ -11,6 +11,7 @@ import {
   IS_DEMO_MODE,
 } from "@/lib/api";
 import { ApiErrorState } from "@/components/api-error-state";
+import { EmptyDataState } from "@/components/empty-data-state";
 
 export default function TrackRecordPage() {
   const [selectedEntry, setSelectedEntry] = useState<TrackRecordEntry | null>(null);
@@ -50,6 +51,11 @@ export default function TrackRecordPage() {
     );
   }
 
+  // Handle empty database
+  if (!isEntriesLoading && (!entries || entries.length === 0)) {
+    return <EmptyDataState />;
+  }
+
   const activeVerify = verifyStatus || initialVerify;
   const isChainOk = activeVerify ? activeVerify.ok : true;
   const latestEntry = entries[entries.length - 1];
@@ -75,9 +81,9 @@ export default function TrackRecordPage() {
             <span
               className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-xs"
               style={{
-                background: "color-mix(in srgb, var(--color-verdigris) 15%, transparent)",
-                color: "var(--color-verdigris)",
-                border: "1px solid var(--color-verdigris)",
+                background: "color-mix(in srgb, var(--color-tag-verdigris) 12%, transparent)",
+                color: "var(--color-tag-verdigris)",
+                border: "1px solid var(--color-tag-verdigris)",
               }}
             >
               STAGE S6 CRYPTOGRAPHIC LEDGER
@@ -164,7 +170,7 @@ export default function TrackRecordPage() {
                 Latest Block Date
               </span>
               <div className="text-xl sm:text-2xl font-bold text-white tabular-nums">
-                {latestEntry?.trade_date || "2026-10-09"}
+                {latestEntry?.trade_date || "—"}
               </div>
             </div>
 

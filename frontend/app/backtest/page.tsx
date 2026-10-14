@@ -7,6 +7,7 @@ import { scaleLinear } from "d3-scale";
 import { line, curveMonotoneX } from "d3-shape";
 import { getLatestBacktest, BacktestLatest, IS_DEMO_MODE } from "@/lib/api";
 import { ApiErrorState } from "@/components/api-error-state";
+import { EmptyDataState } from "@/components/empty-data-state";
 
 const VERDICT_STYLES: Record<string, { bg: string; text: string; border: string }> = {
   positive_after_costs_unvalidated: {
@@ -32,7 +33,7 @@ export default function BacktestPage() {
     isLoading,
     error,
     refetch,
-  } = useQuery<BacktestLatest>({
+  } = useQuery<BacktestLatest | null>({
     queryKey: ["backtest-latest"],
     queryFn: () => getLatestBacktest(),
   });
@@ -46,8 +47,13 @@ export default function BacktestPage() {
     );
   }
 
-  // Exact API verdict string — verbatim, never softened or upgraded
-  const rawVerdict = bt?.summary?.verdict ? String(bt.summary.verdict) : "insufficient_data";
+  // Handle empty database
+  if (!isLoading && (!bt || !bt.summary)) {
+    return <EmptyDataState />;
+  }
+
+  // Exact API verdict string — verbatim from the API response
+  const rawVerdict = bt?.summary?.verdict ? String(bt.summary.verdict) : (IS_DEMO_MODE ? "insufficient_data" : "—");
   const verdictExplanation =
     bt?.summary?.explanation ||
     bt?.summary?.disclaimer ||
@@ -60,8 +66,8 @@ export default function BacktestPage() {
   };
 
   // Metrics: held_out vs train
-  const heldOut = bt?.summary?.held_out_summary || bt?.summary?.held_out || {};
-  const train = bt?.summary?.train_summary || bt?.summary?.train || {};
+  const heldOut = (bt?.summary?.held_out_summary || bt?.summary?.held_out || {}) as Record<string, any>;
+  const train = (bt?.summary?.train_summary || bt?.summary?.train || {}) as Record<string, any>;
 
   // Attribution regression metrics
   const attrib = heldOut?.attribution || {};
@@ -112,11 +118,11 @@ export default function BacktestPage() {
   const trades = bt?.trades || [];
 
   // Skipped signal taxonomy
-  const skippedCount = bt?.summary?.skipped_signals_count ?? 4;
+  const skippedCount = bt?.summary?.skipped_signals_count ?? (IS_DEMO_MODE ? 4 : 0);
   const sampleSkippedReasons = [
-    { code: "near_expiry_signal_day", count: 2, label: "Signal generated <= 3 days before contract expiry (delivery risk block)" },
-    { code: "pair_already_open", count: 1, label: "Existing open position on exact pair active in portfolio" },
-    { code: "same_day_reentry_blocked", count: 1, label: "Same-day re-entry after exit prohibited by anti-churning rule" },
+    { code: "near_expiry_signal_day", count: IS_DEMO_MODE ? 2 : 0, label: "Signal generated <= 3 days before contract expiry (delivery risk block)" },
+    { code: "pair_already_open", count: IS_DEMO_MODE ? 1 : 0, label: "Existing open position on exact pair active in portfolio" },
+    { code: "same_day_reentry_blocked", count: IS_DEMO_MODE ? 1 : 0, label: "Same-day re-entry after exit prohibited by anti-churning rule" },
     { code: "max_open_capacity_reached", count: 0, label: "Portfolio reached max concurrent open position capacity (4)" },
   ];
 
@@ -214,9 +220,9 @@ export default function BacktestPage() {
             </div>
 
             <div className="text-xs space-y-1 sm:text-right" style={{ color: "rgba(255,255,255,0.65)" }}>
-              <div>Simulation ID: <code className="text-xs text-white/90">{bt?.id || "sim-run-20261009-v1"}</code></div>
-              <div>Train cutoff: <strong className="text-white">{bt?.train_to || "2026-09-15"}</strong></div>
-              <div>Engine code: <code className="text-xs text-white/90">{bt?.code_version || "v1"}</code></div>
+              <div>Simulation ID: <code className="text-xs text-white/90">{bt?.id ? String(bt.id) : "—"}</code></div>
+              <div>Train cutoff: <strong className="text-white">{bt?.train_to || "—"}</strong></div>
+              <div>Engine code: <code className="text-xs text-white/90">{bt?.code_version || "—"}</code></div>
             </div>
           </div>
 
@@ -227,7 +233,7 @@ export default function BacktestPage() {
                 Held-Out Net PnL
               </span>
               <div className="font-mono text-xl sm:text-2xl font-bold text-white tabular-nums">
-                INR {Number(heldOut.net_pnl || 14200.5).toLocaleString()}
+                {heldOut.net_pnl != null ? `INR ${Number(heldOut.net_pnl).toLocaleString()}` : "—"}
               </div>
             </div>
 
@@ -236,7 +242,7 @@ export default function BacktestPage() {
                 Held-Out Trades
               </span>
               <div className="font-mono text-xl sm:text-2xl font-bold text-white tabular-nums">
-                {heldOut.trade_count || heldOut.trades || 8}
+                {heldOut.trade_count ?? heldOut.trades ?? "—"}
                 <span className="text-xs font-normal text-white/60 ml-1">trades</span>
               </div>
             </div>
@@ -246,7 +252,9 @@ export default function BacktestPage() {
                 Held-Out Hit Rate
               </span>
               <div className="font-mono text-xl sm:text-2xl font-bold text-white tabular-nums">
-                {((heldOut.win_rate || heldOut.hit_rate || 0.625) * 100).toFixed(1)}%
+                {(heldOut.win_rate != null || heldOut.hit_rate != null)
+                  ? `${(((heldOut.win_rate ?? heldOut.hit_rate) as number) * 100).toFixed(1)}%`
+                  : "—"}
               </div>
             </div>
 
@@ -255,7 +263,9 @@ export default function BacktestPage() {
                 Max Drawdown
               </span>
               <div className="font-mono text-xl sm:text-2xl font-bold text-white tabular-nums">
-                {((heldOut.max_drawdown_pct || 0.032) * 100).toFixed(1)}%
+                {heldOut.max_drawdown_pct != null
+                  ? `${((heldOut.max_drawdown_pct as number) * 100).toFixed(1)}%`
+                  : "—"}
               </div>
             </div>
           </div>
@@ -286,27 +296,31 @@ export default function BacktestPage() {
               <span className="font-display font-bold uppercase tracking-wider text-[11px]" style={{ color: "var(--color-muted)" }}>
                 Train Period (In-Sample)
               </span>
-              <span className="text-xs font-sans text-muted">Up to {bt?.train_to || "2026-09-15"}</span>
+              <span className="text-xs font-sans text-muted">Up to {bt?.train_to || "—"}</span>
             </div>
 
             <div className="space-y-1.5 tabular-nums">
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Trade Count:</span>
-                <span className="font-bold">{train.trade_count || train.trades || 12}</span>
+                <span className="font-bold">{train.trade_count ?? train.trades ?? "—"}</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Win Rate / Hit Rate:</span>
-                <span className="font-bold">{((train.win_rate || train.hit_rate || 0.583) * 100).toFixed(1)}%</span>
+                <span className="font-bold">
+                  {(train.win_rate != null || train.hit_rate != null)
+                    ? `${(((train.win_rate ?? train.hit_rate) as number) * 100).toFixed(1)}%`
+                    : "—"}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Net PnL (INR):</span>
                 <span className="font-bold" style={{ color: "var(--color-verdigris)" }}>
-                  +{Number(train.net_pnl || 18900).toLocaleString()}
+                  {train.net_pnl != null ? `${Number(train.net_pnl) >= 0 ? "+" : ""}INR ${Number(train.net_pnl).toLocaleString()}` : "—"}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Placeholder Friction:</span>
-                <span>INR {Number(train.costs || 900).toLocaleString()}</span>
+                <span>{train.costs != null ? `INR ${Number(train.costs).toLocaleString()}` : "—"}</span>
               </div>
             </div>
           </div>
@@ -320,27 +334,31 @@ export default function BacktestPage() {
               <span className="font-display font-bold uppercase tracking-wider text-[11px]" style={{ color: "var(--color-verdigris)" }}>
                 Held-Out Period (Out-of-Sample)
               </span>
-              <span className="text-xs font-sans text-muted">After {bt?.train_to || "2026-09-15"}</span>
+              <span className="text-xs font-sans text-muted">After {bt?.train_to || "—"}</span>
             </div>
 
             <div className="space-y-1.5 tabular-nums">
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Trade Count:</span>
-                <span className="font-bold">{heldOut.trade_count || heldOut.trades || 8}</span>
+                <span className="font-bold">{heldOut.trade_count ?? heldOut.trades ?? "—"}</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Win Rate / Hit Rate:</span>
-                <span className="font-bold">{((heldOut.win_rate || heldOut.hit_rate || 0.625) * 100).toFixed(1)}%</span>
+                <span className="font-bold">
+                  {(heldOut.win_rate != null || heldOut.hit_rate != null)
+                    ? `${(((heldOut.win_rate ?? heldOut.hit_rate) as number) * 100).toFixed(1)}%`
+                    : "—"}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Net PnL (INR):</span>
                 <span className="font-bold" style={{ color: "var(--color-verdigris)" }}>
-                  +{Number(heldOut.net_pnl || 14200.5).toLocaleString()}
+                  {heldOut.net_pnl != null ? `${Number(heldOut.net_pnl) >= 0 ? "+" : ""}INR ${Number(heldOut.net_pnl).toLocaleString()}` : "—"}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="font-sans" style={{ color: "var(--color-muted)" }}>Placeholder Friction:</span>
-                <span>INR {Number(heldOut.costs || 850).toLocaleString()}</span>
+                <span>{heldOut.costs != null ? `INR ${Number(heldOut.costs).toLocaleString()}` : "—"}</span>
               </div>
             </div>
           </div>
@@ -475,7 +493,7 @@ export default function BacktestPage() {
               Beta to Gold (β)
             </span>
             <div className="text-lg font-bold tabular-nums" style={{ color: "var(--color-text)" }}>
-              {attrib?.beta != null ? attrib.beta.toFixed(4) : "0.0412"}
+              {attrib?.beta != null ? attrib.beta.toFixed(4) : "—"}
             </div>
             <div className="text-[10px] font-sans" style={{ color: "var(--color-muted)" }}>
               Market delta exposure
@@ -487,7 +505,7 @@ export default function BacktestPage() {
               Daily Alpha (α)
             </span>
             <div className="text-lg font-bold tabular-nums" style={{ color: "var(--color-verdigris)" }}>
-              {attrib?.alpha_per_day != null ? `+${(attrib.alpha_per_day * 100).toFixed(4)}%` : "+0.0821%"}
+              {attrib?.alpha_per_day != null ? `${attrib.alpha_per_day >= 0 ? "+" : ""}${(attrib.alpha_per_day * 100).toFixed(4)}%` : "—"}
             </div>
             <div className="text-[10px] font-sans" style={{ color: "var(--color-muted)" }}>
               Per-day unexplained excess
@@ -499,7 +517,7 @@ export default function BacktestPage() {
               R-Squared (R²)
             </span>
             <div className="text-lg font-bold tabular-nums" style={{ color: "var(--color-text)" }}>
-              {attrib?.r_squared != null ? attrib.r_squared.toFixed(4) : "0.0215"}
+              {attrib?.r_squared != null ? attrib.r_squared.toFixed(4) : "—"}
             </div>
             <div className="text-[10px] font-sans" style={{ color: "var(--color-muted)" }}>
               Variation driven by gold
@@ -511,7 +529,7 @@ export default function BacktestPage() {
               Residual Share
             </span>
             <div className="text-lg font-bold tabular-nums" style={{ color: "var(--color-text)" }}>
-              {attrib?.share_explained_by_residual != null ? `${(attrib.share_explained_by_residual * 100).toFixed(1)}%` : "97.8%"}
+              {attrib?.share_explained_by_residual != null ? `${(attrib.share_explained_by_residual * 100).toFixed(1)}%` : "—"}
             </div>
             <div className="text-[10px] font-sans" style={{ color: "var(--color-muted)" }}>
               Basis-specific driver

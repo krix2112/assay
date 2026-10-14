@@ -11,6 +11,7 @@ import {
   IS_DEMO_MODE,
 } from "@/lib/api";
 import { ApiErrorState } from "@/components/api-error-state";
+import { EmptyDataState } from "@/components/empty-data-state";
 
 // Column tooltip definitions — exactly one plain sentence per column
 const COLUMN_TOOLTIPS: Record<string, string> = {
@@ -220,6 +221,11 @@ export default function ContractsPage() {
     );
   }
 
+  // Handle empty database
+  if (!isHistoryLoading && (!history || history.length === 0)) {
+    return <EmptyDataState />;
+  }
+
   return (
     <div className="space-y-8 py-4 sm:py-6">
       {/* Page Header */}
@@ -229,9 +235,9 @@ export default function ContractsPage() {
             <span
               className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-xs"
               style={{
-                background: "color-mix(in srgb, var(--color-verdigris) 15%, transparent)",
-                color: "var(--color-verdigris)",
-                border: "1px solid var(--color-verdigris)",
+                background: "color-mix(in srgb, var(--color-tag-verdigris) 12%, transparent)",
+                color: "var(--color-tag-verdigris)",
+                border: "1px solid var(--color-tag-verdigris)",
               }}
             >
               CONTRACT SPECIFICATIONS & NORMALIZATION

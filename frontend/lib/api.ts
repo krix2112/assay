@@ -149,30 +149,64 @@ export type TrackRecordEntry = z.infer<typeof TrackRecordEntrySchema>;
 
 // --- API Client Configuration & Implementation ---
 
+export class ApiError extends Error {
+  status: number;
+  statusText: string;
+  url: string;
+  detail?: string;
+
+  constructor(status: number, statusText: string, url: string, detail?: string) {
+    super(`API error ${status}: ${statusText} for ${url}${detail ? ` (${detail})` : ""}`);
+    this.name = "ApiError";
+    this.status = status;
+    this.statusText = statusText;
+    this.url = url;
+    this.detail = detail;
+  }
+
+  get isNotFound(): boolean {
+    return this.status === 404;
+  }
+}
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 export const IS_DEMO_MODE =
   process.env.NEXT_PUBLIC_DEMO === "true" ||
-  process.env.NEXT_PUBLIC_API_URL === "demo" ||
-  (!process.env.NEXT_PUBLIC_API_URL && process.env.NODE_ENV === "production");
+  process.env.NEXT_PUBLIC_API_URL === "demo";
 
 // Helper for HTTP requests
 async function fetchFromApi<T>(path: string, schema: z.ZodType<T>): Promise<T> {
   const url = `${API_BASE_URL}${path}`;
-  const res = await fetch(url, { next: { revalidate: 0 } });
+  let res: Response;
+  try {
+    res = await fetch(url, { next: { revalidate: 0 } });
+  } catch (err: any) {
+    throw new ApiError(0, err?.message || "Failed to fetch from API", url);
+  }
   if (!res.ok) {
-    throw new Error(`API error ${res.status}: ${res.statusText} for ${url}`);
+    let detail: string | undefined;
+    try {
+      const errJson = await res.json();
+      detail = errJson?.detail;
+    } catch {}
+    throw new ApiError(res.status, res.statusText, url, detail);
   }
   const json = await res.json();
   return schema.parse(json);
 }
 
 // Client functions with Demo Mode fallback
-export async function getLatestParity(): Promise<ParityResponse> {
+export async function getLatestParity(): Promise<ParityResponse | null> {
   if (IS_DEMO_MODE) {
     const data = await import("@/lib/sample/parity_latest.json");
     return ParityResponseSchema.parse(data.default || data);
   }
-  return fetchFromApi("/parity/latest", ParityResponseSchema);
+  try {
+    return await fetchFromApi("/parity/latest", ParityResponseSchema);
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) return null;
+    throw err;
+  }
 }
 
 export async function getParityHistory(
@@ -190,27 +224,44 @@ export async function getParityHistory(
   if (fromDate) params.append("from", fromDate);
   if (toDate) params.append("to", toDate);
   const query = params.toString() ? `?${params.toString()}` : "";
-  return fetchFromApi(`/parity/history${query}`, z.array(ParityResponseSchema));
+  try {
+    return await fetchFromApi(`/parity/history${query}`, z.array(ParityResponseSchema));
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) return [];
+    throw err;
+  }
 }
 
 export async function getContractsByDate(dateStr: string): Promise<ContractDayItem[]> {
+  if (!dateStr) return [];
   if (IS_DEMO_MODE) {
     const data = await import("@/lib/sample/contracts_by_date.json");
     const dict = (data.default || data) as Record<string, any[]>;
     const list = dict[dateStr] || [];
     return z.array(ContractDayItemSchema).parse(list);
   }
-  return fetchFromApi(`/contracts/${dateStr}`, z.array(ContractDayItemSchema));
+  try {
+    return await fetchFromApi(`/contracts/${dateStr}`, z.array(ContractDayItemSchema));
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) return [];
+    throw err;
+  }
 }
 
 export async function getSpreadsByDate(dateStr: string): Promise<SpreadItem[]> {
+  if (!dateStr) return [];
   if (IS_DEMO_MODE) {
     const data = await import("@/lib/sample/spreads_by_date.json");
     const dict = (data.default || data) as Record<string, any[]>;
     const list = dict[dateStr] || [];
     return z.array(SpreadItemSchema).parse(list);
   }
-  return fetchFromApi(`/spreads?date=${dateStr}`, z.array(SpreadItemSchema));
+  try {
+    return await fetchFromApi(`/spreads?date=${dateStr}`, z.array(SpreadItemSchema));
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) return [];
+    throw err;
+  }
 }
 
 /**
@@ -322,15 +373,37 @@ export async function getDataQualitySummary(
   if (dateFrom) params.append("date_from", dateFrom);
   if (dateTo) params.append("date_to", dateTo);
   const query = params.toString() ? `?${params.toString()}` : "";
-  return fetchFromApi(`/data-quality/summary${query}`, DataQualitySummarySchema);
+  try {
+    return await fetchFromApi(`/data-quality/summary${query}`, DataQualitySummarySchema);
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) {
+      return {
+        data_policy: "Public tables must strictly hold real, manually imported data only.",
+        date_from: null,
+        date_to: null,
+        files_by_status: {},
+        rows_accepted: 0,
+        rows_quarantined: 0,
+        issues_by_check: [],
+        anomalous_dates: [],
+        contract_coverage: [],
+      };
+    }
+    throw err;
+  }
 }
 
-export async function getLatestBacktest(): Promise<BacktestLatest> {
+export async function getLatestBacktest(): Promise<BacktestLatest | null> {
   if (IS_DEMO_MODE) {
     const data = await import("@/lib/sample/backtest_latest.json");
     return BacktestLatestSchema.parse(data.default || data);
   }
-  return fetchFromApi("/backtest/latest", BacktestLatestSchema);
+  try {
+    return await fetchFromApi("/backtest/latest", BacktestLatestSchema);
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) return null;
+    throw err;
+  }
 }
 
 export async function getTrackRecordVerify(): Promise<TrackRecordVerify> {
@@ -338,7 +411,14 @@ export async function getTrackRecordVerify(): Promise<TrackRecordVerify> {
     const data = await import("@/lib/sample/track_record_verify.json");
     return TrackRecordVerifySchema.parse(data.default || data);
   }
-  return fetchFromApi("/track-record/verify", TrackRecordVerifySchema);
+  try {
+    return await fetchFromApi("/track-record/verify", TrackRecordVerifySchema);
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) {
+      return { ok: true, entries: 0, first_broken: null };
+    }
+    throw err;
+  }
 }
 
 export async function getTrackRecord(limit = 100): Promise<TrackRecordEntry[]> {
@@ -347,5 +427,10 @@ export async function getTrackRecord(limit = 100): Promise<TrackRecordEntry[]> {
     const list = (data.default || data).slice(0, limit);
     return z.array(TrackRecordEntrySchema).parse(list);
   }
-  return fetchFromApi(`/track-record?limit=${limit}`, z.array(TrackRecordEntrySchema));
+  try {
+    return await fetchFromApi(`/track-record?limit=${limit}`, z.array(TrackRecordEntrySchema));
+  } catch (err) {
+    if (err instanceof ApiError && err.isNotFound) return [];
+    throw err;
+  }
 }

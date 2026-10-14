@@ -19,9 +19,9 @@ export function ApiErrorState({
         <span
           className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-xs"
           style={{
-            background: "color-mix(in srgb, var(--color-madder) 15%, transparent)",
-            color: "var(--color-madder)",
-            border: "1px solid var(--color-madder)",
+            background: "color-mix(in srgb, var(--color-tag-madder) 12%, transparent)",
+            color: "var(--color-tag-madder)",
+            border: "1px solid var(--color-tag-madder)",
           }}
         >
           API CONNECTION ERROR

@@ -15,7 +15,7 @@
     --color-surface:    #F3F4F0;   /* chalk */
     --color-raised:     #FFFFFF;
     --color-text:       #2A3431;   /* basalt */
-    --color-muted:      #6B7572;
+    --color-muted:      #586360;   /* WCAG AA 4.78:1 on limestone, 5.64:1 on chalk */
     --color-line:       rgba(42, 52, 49, 0.12);
     --color-touchstone: #2A3431;
 
@@ -26,6 +26,11 @@
     --color-gold-ten:   #D9B866;
     --color-gold-guinea:#B98A2F;
     --color-gold-petal: #E6CF8F;
+
+    /* WCAG AA High-Contrast Tag Text (min 4.5:1 on light page/surface) */
+    --color-tag-verdigris: #2E5F53;  /* 5.80:1 on limestone, 6.61:1 on chalk */
+    --color-tag-madder:    #983E2D;  /* 5.45:1 on limestone, 6.21:1 on chalk */
+    --color-tag-gold:      #7E5B15;  /* 4.92:1 on limestone, 5.60:1 on chalk */
 
     /* Legacy names kept for Tailwind compat */
     --color-limestone:  #E4E6E0;
@@ -66,6 +71,11 @@
     --color-gold-ten:   #E6C978;
     --color-gold-guinea:#C79A3A;
     --color-gold-petal: #EED9A0;
+
+    /* WCAG AA High-Contrast Tag Text (min 4.5:1 on dark page/surface) */
+    --color-tag-verdigris: #72B7A5;  /* 6.43:1 on graphite page, 5.63:1 on surface */
+    --color-tag-madder:    #DE8570;  /* 5.48:1 on graphite page, 4.80:1 on surface */
+    --color-tag-gold:      #D8B358;  /* 7.48:1 on graphite page, 6.55:1 on surface */
 
     /* Legacy names (keep Tailwind working) */
     --color-limestone:  #22282A;
