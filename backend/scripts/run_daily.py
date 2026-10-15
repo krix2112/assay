@@ -2,8 +2,13 @@
 """Run daily analytics pipeline, track record append, brief delivery, and integrity check."""
 
 import argparse
+import os
+import sys
 from datetime import date
 from typing import Any
+
+# Ensure backend root is on sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
