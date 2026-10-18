@@ -41,7 +41,9 @@ class ContractCoverageItem(BaseModel):
 class DataQualitySummaryResponse(BaseModel):
     """Pydantic model representing complete Data Trust Scorecard API response."""
 
-    data_policy: str = "Public tables must strictly hold real, manually imported data only."
+    data_policy: str = (
+        "The product itself does not scrape. Local development data is private and not published."
+    )
     date_from: str | None = None
     date_to: str | None = None
     files_by_status: dict[str, int] = Field(default_factory=dict)

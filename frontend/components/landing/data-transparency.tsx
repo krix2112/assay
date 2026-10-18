@@ -196,6 +196,9 @@ export function DataTransparency() {
           </div>
           <ul className="space-y-3 text-xs leading-relaxed" style={{ color: "var(--color-muted)" }}>
             <li>
+              <strong style={{ color: "var(--color-text)" }}>No automated scraping:</strong> The product itself does not scrape. Local development data is private and not published.
+            </li>
+            <li>
               <strong style={{ color: "var(--color-text)" }}>No intraday tick prediction:</strong> Assay does not forecast tick direction or provide millisecond order-routing signals.
             </li>
             <li>

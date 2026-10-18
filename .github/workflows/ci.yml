@@ -51,7 +51,7 @@ jobs:
           uv run ruff format --check .
 
       - name: Run Mypy Type Checker
-        run: uv run mypy .
+        run: uv run mypy
 
       - name: Run Pytest
         run: uv run pytest

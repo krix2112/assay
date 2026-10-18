@@ -28,6 +28,12 @@ const FAQS: FAQItem[] = [
       "No. Assay is an end-of-day analytics and verification engine. It evaluates official daily bhavcopy records, audits data integrity, and calculates structured parity metrics. It does not publish tick-by-tick predictions or execute automated market orders.",
   },
   {
+    id: "faq-scraping",
+    question: "Does the product automate scraping?",
+    answer:
+      "The product itself does not scrape. Local development data is private and not published.",
+  },
+  {
     id: "faq-lookahead",
     question: "How do you prevent look-ahead bias?",
     answer:

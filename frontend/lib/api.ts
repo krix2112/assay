@@ -378,7 +378,8 @@ export async function getDataQualitySummary(
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) {
       return {
-        data_policy: "Public tables must strictly hold real, manually imported data only.",
+        data_policy:
+          "The product itself does not scrape. Local development data is private and not published.",
         date_from: null,
         date_to: null,
         files_by_status: {},

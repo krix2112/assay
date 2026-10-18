@@ -9,6 +9,7 @@ import json
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from pathlib import Path
+from typing import Any
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -38,6 +39,9 @@ class PipelineSummary:
     is_idempotent_skip: bool = False
     requested_date: date | None = None
     returned_trade_date: date | None = None
+    rows_new: int = 0
+    rows_identical: int = 0
+    conflicts: tuple[dict[str, Any], ...] = ()
 
 
 def process_file(
@@ -129,7 +133,7 @@ def process_file(
             raw_fetch = RawFetchRecord(
                 requested_date=requested_date,
                 returned_trade_date=None,
-                acquisition_method="manual import",
+                acquisition_method="manual download (MCX website CSV)",
                 source_name=file_path.name,
                 sha256=sha256_hash,
                 archive_path=str(import_res.raw_path),
@@ -171,7 +175,7 @@ def process_file(
         raw_fetch = RawFetchRecord(
             requested_date=requested_date or parse_res.requested_date,
             returned_trade_date=returned_trade_date,
-            acquisition_method="manual import",
+            acquisition_method="manual download (MCX website CSV)",
             source_name=file_path.name,
             sha256=sha256_hash,
             archive_path=str(import_res.raw_path),
@@ -184,7 +188,10 @@ def process_file(
 
         # 6. Store accepted rows and detect conflicting revisions
         accepted_count = 0
+        new_count = 0
+        identical_count = 0
         conflicts_count = 0
+        conflicts_list: list[dict[str, Any]] = []
         now_utc = datetime.now(UTC)
 
         for row in val_report.accepted_rows:
@@ -208,6 +215,7 @@ def process_file(
                 )
                 db.add(new_row)
                 accepted_count += 1
+                new_count += 1
             else:
                 # Compare fields for identical match vs conflicting revision
                 is_identical = (
@@ -221,9 +229,32 @@ def process_file(
                 if is_identical:
                     # Identical row is a no-op
                     accepted_count += 1
+                    identical_count += 1
                 else:
                     # Conflicting revision! Keep existing row and log CONFLICTING_REVISION error
                     conflicts_count += 1
+                    conflict_item = {
+                        "symbol": row.symbol,
+                        "expiry_date": row.expiry_date,
+                        "trade_date": row.trade_date,
+                        "existing": {
+                            "open": existing.open,
+                            "high": existing.high,
+                            "low": existing.low,
+                            "close": existing.close,
+                            "volume": existing.volume,
+                            "open_interest": existing.open_interest,
+                        },
+                        "incoming": {
+                            "open": row.open,
+                            "high": row.high,
+                            "low": row.low,
+                            "close": row.close,
+                            "volume": row.volume,
+                            "open_interest": row.open_interest,
+                        },
+                    }
+                    conflicts_list.append(conflict_item)
                     db.add(
                         DataQualityLogRecord(
                             raw_fetch_id=raw_fetch.id,
@@ -285,6 +316,9 @@ def process_file(
             is_idempotent_skip=False,
             requested_date=requested_date,
             returned_trade_date=returned_trade_date,
+            rows_new=new_count,
+            rows_identical=identical_count,
+            conflicts=tuple(conflicts_list),
         )
 
     if session is not None:

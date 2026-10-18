@@ -171,7 +171,7 @@ def test_importer_service(tmp_path: Path) -> None:
 
     # Check sidecar content
     sidecar_text = import_result.sidecar_path.read_text(encoding="utf-8")
-    assert '"acquisition_method": "manual import"' in sidecar_text
+    assert '"acquisition_method": "manual download (MCX website CSV)"' in sidecar_text
     assert '"source_filename": "normal_day.json"' in sidecar_text
 
 

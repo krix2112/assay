@@ -21,7 +21,7 @@ class RawFetchRecord(Base):
         Date, nullable=True, comment="The true trade date contained in exchange payload"
     )
     acquisition_method: Mapped[str] = mapped_column(
-        String(50), nullable=False, comment="Method of acquisition (e.g. 'manual import')"
+        String(100), nullable=False, comment="Method of acquisition"
     )
     source_name: Mapped[str] = mapped_column(
         String(255), nullable=False, comment="Original source filename or URI"

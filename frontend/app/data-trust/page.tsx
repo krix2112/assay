@@ -128,7 +128,7 @@ export default function DataTrustPage() {
                 Public Ledger Governance Policy
               </span>
               <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white mt-0.5">
-                {summary?.data_policy || "Public tables must strictly hold real, manually imported data only."}
+                {summary?.data_policy || "The product itself does not scrape. Local development data is private and not published."}
               </h2>
             </div>
             <div className="text-xs" style={{ color: "rgba(255,255,255,0.65)" }}>

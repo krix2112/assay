@@ -28,14 +28,14 @@ class BhavcopyRowRecord(Base):
     trade_date: Mapped[date] = mapped_column(
         Date, primary_key=True, index=True, comment="Actual trading date on MCX"
     )
-    open: Mapped[Decimal] = mapped_column(
-        Numeric(14, 4), nullable=False, comment="Opening price (INR)"
+    open: Mapped[Decimal | None] = mapped_column(
+        Numeric(14, 4), nullable=True, comment="Opening price (INR)"
     )
-    high: Mapped[Decimal] = mapped_column(
-        Numeric(14, 4), nullable=False, comment="Highest traded price (INR)"
+    high: Mapped[Decimal | None] = mapped_column(
+        Numeric(14, 4), nullable=True, comment="Highest traded price (INR)"
     )
-    low: Mapped[Decimal] = mapped_column(
-        Numeric(14, 4), nullable=False, comment="Lowest traded price (INR)"
+    low: Mapped[Decimal | None] = mapped_column(
+        Numeric(14, 4), nullable=True, comment="Lowest traded price (INR)"
     )
     close: Mapped[Decimal] = mapped_column(
         Numeric(14, 4), nullable=False, comment="Closing / settlement price (INR)"

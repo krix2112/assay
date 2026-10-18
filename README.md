@@ -98,8 +98,12 @@ uv run alembic upgrade head
 
 ## Data Sources and Terms
 
+- No automated MCX download is part of the project, and any local data in data/raw must have been obtained in line with MCX's terms.
 - **No Automated MCX Downloads**: Assay does not automate downloads or scraping from the Multi Commodity Exchange of India (MCX).
-- **Manual Import**: Market data is supplied via manual import of Bhavcopy files obtained directly through the official MCX website for personal, non-commercial research purposes.
 - **Data Protection**: Raw MCX data files and fixtures are never committed to version control or republished.
 - **Live Ingestion**: Automated live fetching is disabled by default (`MCX_LIVE_FETCH_ENABLED=False`) and strictly requires prior written consent from MCX or access via an authorized licensed data feed.
-- **Public Database Integrity**: The public database tables must strictly hold only real, manually imported data. Synthetic test fixtures are guarded and prohibited from public tables, executing exclusively in temporary schemas during tests.
+
+### Local Data Provenance
+
+The local data was fetched by an automated script, is for private development only, is not committed or published, and will be removed if MCX or the organizers do not permit it. In local raw audit metadata and database records, the acquisition method is recorded as: `automated fetch by local script (not covered by MCX consent)`.
+

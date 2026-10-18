@@ -160,3 +160,26 @@ def test_goldten_before_listing_warning() -> None:
         i.check_name == CheckName.GOLDTEN_BEFORE_LISTING and i.severity == Severity.WARNING
         for i in issues
     )
+
+
+def test_blank_ohl_zero_volume_accepted_with_warning() -> None:
+    """A row with None open/high/low, positive close and zero volume is accepted
+    with ZERO_VOLUME warning.
+    """
+    row = BhavcopyRow(
+        symbol="GOLDM",
+        trade_date=date(2026, 10, 9),
+        expiry_date=date(2027, 4, 5),
+        open=None,
+        high=None,
+        low=None,
+        close=Decimal("75120.00"),
+        volume=0,
+        open_interest=0,
+        instrument="FUTCOM",
+    )
+    issues = validate_single_row(row)
+    assert not any(i.severity == Severity.ERROR for i in issues)
+    assert any(
+        i.check_name == CheckName.ZERO_VOLUME and i.severity == Severity.WARNING for i in issues
+    )

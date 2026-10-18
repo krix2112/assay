@@ -44,14 +44,15 @@ def _archive_imported_file(
     date_str = eff_date.strftime("%Y%m%d")
     timestamp_str = imported_at.strftime("%Y%m%dT%H%M%SZ")
     base_stem = f"bhavcopy_import_{date_str}_{timestamp_str}"
+    ext = source_path.suffix if source_path.suffix else ".json"
 
-    raw_file = dest_dir / f"{base_stem}.json"
+    raw_file = dest_dir / f"{base_stem}{ext}"
     sidecar_file = dest_dir / f"{base_stem}.meta.json"
 
     counter = 1
     while raw_file.exists() or sidecar_file.exists():
         stem_with_seq = f"{base_stem}_{counter}"
-        raw_file = dest_dir / f"{stem_with_seq}.json"
+        raw_file = dest_dir / f"{stem_with_seq}{ext}"
         sidecar_file = dest_dir / f"{stem_with_seq}.meta.json"
         counter += 1
 
@@ -62,7 +63,7 @@ def _archive_imported_file(
     sidecar_data = {
         "source_filename": source_path.name,
         "source_path": str(source_path.resolve()),
-        "acquisition_method": "manual import",
+        "acquisition_method": "manual download (MCX website CSV)",
         "imported_at": imported_at.isoformat(),
         "requested_date": requested_date.isoformat() if requested_date else None,
         "trade_date": trade_date.isoformat() if trade_date else None,

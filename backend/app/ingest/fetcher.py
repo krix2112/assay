@@ -15,6 +15,8 @@ from tenacity import (
 from app.core.config import settings
 from app.core.logging import logger
 
+MCX_BHAVCOPY_URL: str = "https://www.mcxindia.com/market-data/bhavcopy/GetDateWiseBhavCopy"
+
 
 @dataclass(frozen=True)
 class RawFetch:
@@ -98,7 +100,7 @@ def fetch_bhavcopy(
         logger.warning("MCX live fetch refused", reason="Live fetch disabled by default")
         raise LiveFetchDisabledError(msg)
 
-    target_url = url or settings.MCX_BHAVCOPY_URL
+    target_url = url or settings.MCX_BHAVCOPY_URL or MCX_BHAVCOPY_URL
     req_timeout = timeout if timeout is not None else settings.MCX_REQUEST_TIMEOUT_SECONDS
 
     # MCX date format is DD/MM/YYYY

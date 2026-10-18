@@ -27,13 +27,17 @@ class Settings(BaseSettings):
         default=["http://localhost:3000"],
         description="Allowed CORS origins",
     )
+    PUBLIC_DATA_APPROVED: bool = Field(
+        default=False,
+        description="Explicit approval flag required for public data serving in production.",
+    )
     MCX_LIVE_FETCH_ENABLED: bool = Field(
         default=False,
         description="Enable live network fetching from MCX. Requires written consent from MCX.",
     )
-    MCX_BHAVCOPY_URL: str = Field(
-        default="https://www.mcxindia.com/market-data/bhavcopy/GetDateWiseBhavCopy",
-        description="MCX Bhavcopy endpoint URL",
+    MCX_BHAVCOPY_URL: str | None = Field(
+        default=None,
+        description="Optional Bhavcopy endpoint URL override. Default is handled in fetcher.",
     )
     MCX_REQUEST_TIMEOUT_SECONDS: float = Field(
         default=15.0,

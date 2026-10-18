@@ -33,9 +33,9 @@ def _row_to_dict(row: BhavcopyRow) -> dict[str, Any]:
         "symbol": row.symbol,
         "trade_date": row.trade_date.isoformat(),
         "expiry_date": row.expiry_date.isoformat(),
-        "open": str(row.open),
-        "high": str(row.high),
-        "low": str(row.low),
+        "open": str(row.open) if row.open is not None else None,
+        "high": str(row.high) if row.high is not None else None,
+        "low": str(row.low) if row.low is not None else None,
         "close": str(row.close),
         "volume": row.volume,
         "open_interest": row.open_interest,
@@ -114,7 +114,14 @@ def validate_single_row(
             )
 
     # 4. NON_POSITIVE_PRICE (error)
-    if row.open <= 0 or row.high <= 0 or row.low <= 0 or row.close <= 0:
+    # OHLC checks apply only to values present; close must be positive
+    non_positive = (
+        row.close <= 0
+        or (row.open is not None and row.open <= 0)
+        or (row.high is not None and row.high <= 0)
+        or (row.low is not None and row.low <= 0)
+    )
+    if non_positive:
         issues.append(
             QualityIssue(
                 check_name=CheckName.NON_POSITIVE_PRICE,
@@ -131,13 +138,20 @@ def validate_single_row(
         )
 
     # 5. INCONSISTENT_OHLC (error)
-    if (
-        row.high < row.low
-        or row.open < row.low
-        or row.open > row.high
-        or row.close < row.low
-        or row.close > row.high
-    ):
+    # Bounds checks apply only among values present
+    inconsistent = False
+    if row.high is not None and row.low is not None and row.high < row.low:
+        inconsistent = True
+    elif row.open is not None and row.low is not None and row.open < row.low:
+        inconsistent = True
+    elif row.open is not None and row.high is not None and row.open > row.high:
+        inconsistent = True
+    elif row.low is not None and row.close < row.low:
+        inconsistent = True
+    elif row.high is not None and row.close > row.high:
+        inconsistent = True
+
+    if inconsistent:
         issues.append(
             QualityIssue(
                 check_name=CheckName.INCONSISTENT_OHLC,
@@ -261,7 +275,7 @@ def validate_bhavcopy(
     # 3. Filter gold contracts vs out-of-scope contracts
     gold_rows: list[BhavcopyRow] = []
     for row in parse_result.rows:
-        if row.symbol not in TARGET_GOLD_SYMBOLS:
+        if row.symbol not in TARGET_GOLD_SYMBOLS or row.instrument != "FUTCOM":
             report.out_of_scope_count += 1
         else:
             gold_rows.append(row)

@@ -52,6 +52,9 @@ frontend/.env.local
 
 # Raw ingested data & real exchange fixtures
 data/raw/
+data/quarantine/
+data/incoming/
+data/incoming_rejected/
 data/fixtures/bhavcopy_*
 data/track_record/*.json
 

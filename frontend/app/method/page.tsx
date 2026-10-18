@@ -123,7 +123,7 @@ export default function MethodPage() {
               Raw Bhavcopy Ingestion
             </strong>
             <p style={{ color: "var(--color-muted)" }}>
-              MCX Bhavcopy CSV publications are ingested byte-for-byte and archived under their SHA-256 digest. Only the four target gold contracts (GOLDM, GOLDTEN, GOLDGUINEA, GOLDPETAL) are extracted; all non-gold commodities are filtered out-of-scope without error.
+              The product itself does not scrape. Local development data is private and not published. MCX Bhavcopy CSV publications are ingested byte-for-byte and archived under their SHA-256 digest. Only the four target gold contracts (GOLDM, GOLDTEN, GOLDGUINEA, GOLDPETAL) are extracted; all non-gold commodities are filtered out-of-scope without error.
             </p>
           </div>
 
