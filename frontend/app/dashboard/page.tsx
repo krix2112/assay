@@ -12,6 +12,7 @@ import {
   getTrackRecordVerify,
   ContractDayItem,
   SpreadItem,
+  IS_DEMO_MODE,
 } from "@/lib/api";
 import { TRANSITION, DURATION } from "@/lib/motion";
 import { CrosshairProvider } from "@/lib/crosshair";
@@ -131,7 +132,7 @@ export default function DashboardPage() {
   });
 
   // Handle explicit API error
-  if (historyError) {
+  if (historyError && !IS_DEMO_MODE) {
     return (
       <ApiErrorState
         title="Cannot reach the Assay API. Is it running?"

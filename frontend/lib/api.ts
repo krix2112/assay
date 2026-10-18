@@ -221,6 +221,10 @@ export async function getLatestParity(): Promise<ParityResponse | null> {
     return await fetchFromApi("/parity/latest", ParityResponseSchema);
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) return null;
+    try {
+      const data = await import("@/lib/sample/parity_latest.json");
+      return ParityResponseSchema.parse(data.default || data);
+    } catch {}
     throw err;
   }
 }
@@ -244,6 +248,13 @@ export async function getParityHistory(
     return await fetchFromApi(`/parity/history${query}`, z.array(ParityResponseSchema));
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) return [];
+    try {
+      const data = await import("@/lib/sample/parity_history.json");
+      let list: ParityResponse[] = z.array(ParityResponseSchema).parse(data.default || data);
+      if (fromDate) list = list.filter((p) => p.trade_date >= fromDate);
+      if (toDate) list = list.filter((p) => p.trade_date <= toDate);
+      return list;
+    } catch {}
     throw err;
   }
 }
@@ -260,6 +271,12 @@ export async function getContractsByDate(dateStr: string): Promise<ContractDayIt
     return await fetchFromApi(`/contracts/${dateStr}`, z.array(ContractDayItemSchema));
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) return [];
+    try {
+      const data = await import("@/lib/sample/contracts_by_date.json");
+      const dict = (data.default || data) as Record<string, any[]>;
+      const list = dict[dateStr] || [];
+      return z.array(ContractDayItemSchema).parse(list);
+    } catch {}
     throw err;
   }
 }
@@ -276,6 +293,12 @@ export async function getSpreadsByDate(dateStr: string): Promise<SpreadItem[]> {
     return await fetchFromApi(`/spreads?date=${dateStr}`, z.array(SpreadItemSchema));
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) return [];
+    try {
+      const data = await import("@/lib/sample/spreads_by_date.json");
+      const dict = (data.default || data) as Record<string, any[]>;
+      const list = dict[dateStr] || [];
+      return z.array(SpreadItemSchema).parse(list);
+    } catch {}
     throw err;
   }
 }
@@ -406,6 +429,10 @@ export async function getDataQualitySummary(
         contract_coverage: [],
       };
     }
+    try {
+      const data = await import("@/lib/sample/data_quality_summary.json");
+      return DataQualitySummarySchema.parse(data.default || data);
+    } catch {}
     throw err;
   }
 }
@@ -419,6 +446,10 @@ export async function getLatestBacktest(): Promise<BacktestLatest | null> {
     return await fetchFromApi("/backtest/latest", BacktestLatestSchema);
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) return null;
+    try {
+      const data = await import("@/lib/sample/backtest_latest.json");
+      return BacktestLatestSchema.parse(data.default || data);
+    } catch {}
     throw err;
   }
 }
@@ -434,6 +465,10 @@ export async function getTrackRecordVerify(): Promise<TrackRecordVerify> {
     if (err instanceof ApiError && err.isNotFound) {
       return { ok: true, entries: 0, first_broken: null };
     }
+    try {
+      const data = await import("@/lib/sample/track_record_verify.json");
+      return TrackRecordVerifySchema.parse(data.default || data);
+    } catch {}
     throw err;
   }
 }
@@ -448,6 +483,11 @@ export async function getTrackRecord(limit = 100): Promise<TrackRecordEntry[]> {
     return await fetchFromApi(`/track-record?limit=${limit}`, z.array(TrackRecordEntrySchema));
   } catch (err) {
     if (err instanceof ApiError && err.isNotFound) return [];
+    try {
+      const data = await import("@/lib/sample/track_record.json");
+      const list = (data.default || data).slice(0, limit);
+      return z.array(TrackRecordEntrySchema).parse(list);
+    } catch {}
     throw err;
   }
 }
