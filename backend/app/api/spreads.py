@@ -42,14 +42,29 @@ class SpreadItemResponse(BaseModel):
         "Returns all contract pair spreads, rolling median/MAD, and robust z-scores for ?date=."
     ),
 )
+@router.get(
+    "/{target_date}",
+    response_model=list[SpreadItemResponse],
+    summary="Get pair spreads for a given trade date (path parameter)",
+    description=(
+        "Returns all contract pair spreads, rolling median/MAD, and robust z-scores for /{date}."
+    ),
+)
 def get_spreads_by_date(
-    target_date: date = Query(..., alias="date", description="Trade date (YYYY-MM-DD)"),
+    target_date: date | None = None,
+    date: date | None = Query(None, description="Trade date (YYYY-MM-DD)"),
     db: Session = Depends(get_db),
 ) -> list[SpreadItemResponse]:
     """Retrieve all pair spreads for a specific date."""
+    effective_date = target_date or date
+    if effective_date is None:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Trade date must be specified as path parameter or ?date= query param.",
+        )
     stmt = (
         select(SpreadRecord)
-        .where(SpreadRecord.trade_date == target_date)
+        .where(SpreadRecord.trade_date == effective_date)
         .order_by(
             SpreadRecord.symbol_a,
             SpreadRecord.expiry_a,
@@ -62,7 +77,7 @@ def get_spreads_by_date(
     if not records:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"No spreads found for date {target_date.isoformat()}",
+            detail=f"No spreads found for date {effective_date.isoformat()}",
         )
 
     return [SpreadItemResponse.model_validate(r) for r in records]

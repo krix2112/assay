@@ -3,7 +3,7 @@
 from datetime import date
 from decimal import Decimal
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -38,6 +38,15 @@ class ContractDayItemResponse(BaseModel):
 
 
 @router.get(
+    "",
+    response_model=list[ContractDayItemResponse],
+    summary="Get contract market and derived metrics for a specific date (query param)",
+    description=(
+        "Returns settlement close, normalized per-gram prices, "
+        "and liquidity scores for all active gold contracts using ?date=."
+    ),
+)
+@router.get(
     "/{date_str}",
     response_model=list[ContractDayItemResponse],
     summary="Get contract market and derived metrics for a specific date",
@@ -47,16 +56,23 @@ class ContractDayItemResponse(BaseModel):
     ),
 )
 def get_contracts_by_date(
-    date_str: str,
+    date_str: str | None = None,
+    date_query: str | None = Query(None, alias="date"),
     db: Session = Depends(get_db),
 ) -> list[ContractDayItemResponse]:
     """Retrieve all contracts for a specific trade date."""
+    effective_str = date_str or date_query
+    if not effective_str:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Trade date must be specified as path parameter or ?date= query param.",
+        )
     try:
-        target_date = date.fromisoformat(date_str)
+        target_date = date.fromisoformat(effective_str)
     except ValueError as exc:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid date format '{date_str}'. Expected YYYY-MM-DD.",
+            detail=f"Invalid date format '{effective_str}'. Expected YYYY-MM-DD.",
         ) from exc
 
     stmt = (

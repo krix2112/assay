@@ -123,3 +123,57 @@ def get_latest_backtest(
         equity_curve=[BacktestDailyItemResponse.model_validate(d) for d in daily_records],
         trades=[BacktestTradeItemResponse.model_validate(t) for t in trade_records],
     )
+
+
+@router.get(
+    "/summary",
+    summary="Get summary of latest backtest",
+)
+def get_backtest_summary(db: Session = Depends(get_db)) -> dict[str, Any]:
+    """Retrieve summary dictionary from the latest backtest run."""
+    run_record = db.execute(
+        select(BacktestRunRecord).order_by(BacktestRunRecord.created_at.desc()).limit(1)
+    ).scalar_one_or_none()
+    if run_record is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No backtest runs found")
+    return run_record.summary
+
+
+@router.get(
+    "/positions",
+    response_model=list[BacktestDailyItemResponse],
+    summary="Get equity curve and daily positions of latest backtest",
+)
+def get_backtest_positions(db: Session = Depends(get_db)) -> list[BacktestDailyItemResponse]:
+    """Retrieve daily positions and equity curve from the latest backtest run."""
+    run_record = db.execute(
+        select(BacktestRunRecord).order_by(BacktestRunRecord.created_at.desc()).limit(1)
+    ).scalar_one_or_none()
+    if run_record is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No backtest runs found")
+    daily = db.execute(
+        select(BacktestDailyRecord)
+        .where(BacktestDailyRecord.run_id == run_record.id)
+        .order_by(BacktestDailyRecord.trade_date.asc())
+    ).scalars().all()
+    return [BacktestDailyItemResponse.model_validate(d) for d in daily]
+
+
+@router.get(
+    "/trades",
+    response_model=list[BacktestTradeItemResponse],
+    summary="Get executed trades of latest backtest",
+)
+def get_backtest_trades(db: Session = Depends(get_db)) -> list[BacktestTradeItemResponse]:
+    """Retrieve executed trades from the latest backtest run."""
+    run_record = db.execute(
+        select(BacktestRunRecord).order_by(BacktestRunRecord.created_at.desc()).limit(1)
+    ).scalar_one_or_none()
+    if run_record is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No backtest runs found")
+    trades = db.execute(
+        select(BacktestTradeRecord)
+        .where(BacktestTradeRecord.run_id == run_record.id)
+        .order_by(BacktestTradeRecord.entry_date.asc(), BacktestTradeRecord.id.asc())
+    ).scalars().all()
+    return [BacktestTradeItemResponse.model_validate(t) for t in trades]

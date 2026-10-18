@@ -14,6 +14,7 @@ router = APIRouter(prefix="/track-record", tags=["track-record"])
 
 
 @router.get("")
+@router.get("/chain")
 def get_track_record(
     limit: int = 100,
     db: Session = Depends(get_db),
