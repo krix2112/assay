@@ -170,9 +170,25 @@ export class ApiError extends Error {
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+const isLocalhostUrl = (url?: string) =>
+  !url || url.includes("localhost") || url.includes("127.0.0.1");
+
+const isBrowser = typeof window !== "undefined";
+const isRemoteClient =
+  isBrowser &&
+  window.location.hostname !== "localhost" &&
+  window.location.hostname !== "127.0.0.1";
+const isRemoteDeployment =
+  Boolean(process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.VERCEL) ||
+  (process.env.NODE_ENV === "production" && isLocalhostUrl(process.env.NEXT_PUBLIC_API_URL));
+
 export const IS_DEMO_MODE =
   process.env.NEXT_PUBLIC_DEMO === "true" ||
-  process.env.NEXT_PUBLIC_API_URL === "demo";
+  process.env.NEXT_PUBLIC_API_URL === "demo" ||
+  ((isRemoteClient || isRemoteDeployment) &&
+    process.env.NEXT_PUBLIC_DEMO !== "false" &&
+    isLocalhostUrl(API_BASE_URL));
 
 // Helper for HTTP requests
 async function fetchFromApi<T>(path: string, schema: z.ZodType<T>): Promise<T> {
